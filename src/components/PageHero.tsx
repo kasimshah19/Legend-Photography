@@ -71,13 +71,15 @@ export function PageHero({
         newIndices[player] = (prev[nextPlayer] + 1) % videos.length;
         return newIndices;
       });
-    }, 400);
+    }, 1000);
   };
 
   const toggleMute = () => setIsMuted(!isMuted);
 
-  const getVideoClass = () => {
-    return "absolute top-1/2 left-1/2 w-[100vh] h-[100vw] -translate-x-1/2 -translate-y-1/2 -rotate-90 object-cover object-[center_30%]";
+  const getVideoClass = (isActive: boolean) => {
+    return `absolute top-1/2 left-1/2 w-[100vh] h-[100vw] -translate-x-1/2 -translate-y-1/2 -rotate-90 object-cover object-[center_30%] transition-opacity duration-1000 ease-in-out ${
+      isActive ? "opacity-100 z-10" : "opacity-0 z-0 transition-all delay-700"
+    }`;
   };
 
   return (
@@ -94,22 +96,20 @@ export function PageHero({
             src={videos[indices[0]]}
             muted={isMuted}
             playsInline
+            autoPlay={activePlayer === 0}
             preload="auto"
             onEnded={() => handleEnded(0)}
-            className={`${getVideoClass()} transition-opacity duration-300 ${
-              activePlayer === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
+            className={getVideoClass(activePlayer === 0)}
           />
           <video
             ref={player1}
             src={videos[indices[1] % videos.length]}
             muted={isMuted}
             playsInline
+            autoPlay={activePlayer === 1}
             preload="auto"
             onEnded={() => handleEnded(1)}
-            className={`${getVideoClass()} transition-opacity duration-300 ${
-              activePlayer === 1 ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
+            className={getVideoClass(activePlayer === 1)}
           />
           
           <button
