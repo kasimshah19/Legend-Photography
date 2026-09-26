@@ -27,6 +27,7 @@ export function PageHero({
   const [activePlayer, setActivePlayer] = useState<0 | 1>(0);
   const [indices, setIndices] = useState<[number, number]>([0, 1]);
   const [isMuted, setIsMuted] = useState(true);
+  const [preloadNext, setPreloadNext] = useState(false);
 
   const player0 = useRef<HTMLVideoElement>(null);
   const player1 = useRef<HTMLVideoElement>(null);
@@ -54,8 +55,16 @@ export function PageHero({
     if (player1.current) player1.current.muted = isMuted;
   }, [isMuted]);
 
+  const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const video = e.currentTarget;
+    if (video.duration && video.currentTime > video.duration / 2) {
+      if (!preloadNext) setPreloadNext(true);
+    }
+  };
+
   const handleEnded = (player: 0 | 1) => {
     if (!videos) return;
+    setPreloadNext(false);
     const nextPlayer = player === 0 ? 1 : 0;
     setActivePlayer(nextPlayer);
     
@@ -97,7 +106,8 @@ export function PageHero({
             muted={isMuted}
             playsInline
             autoPlay={activePlayer === 0}
-            preload={activePlayer === 0 ? "auto" : "metadata"}
+            preload={activePlayer === 0 ? "auto" : (preloadNext ? "auto" : "none")}
+            onTimeUpdate={activePlayer === 0 ? handleTimeUpdate : undefined}
             onEnded={() => handleEnded(0)}
             className={getVideoClass(activePlayer === 0)}
             suppressHydrationWarning
@@ -108,7 +118,8 @@ export function PageHero({
             muted={isMuted}
             playsInline
             autoPlay={activePlayer === 1}
-            preload={activePlayer === 1 ? "auto" : "metadata"}
+            preload={activePlayer === 1 ? "auto" : (preloadNext ? "auto" : "none")}
+            onTimeUpdate={activePlayer === 1 ? handleTimeUpdate : undefined}
             onEnded={() => handleEnded(1)}
             className={getVideoClass(activePlayer === 1)}
             suppressHydrationWarning
