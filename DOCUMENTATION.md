@@ -376,3 +376,6 @@ Legend Photography is a highly polished, performance-oriented frontend applicati
 | 19 | Responsive Rendering Flow | Not Applicable | Standard Tailwind CSS |
 | 20 | Complete User Journey | Not Applicable | Subsumed by User Flow |
 
+## 25. Testing & QA
+
+[Complete Test Cases & QA Documentation](./TEST_CASES.md)
