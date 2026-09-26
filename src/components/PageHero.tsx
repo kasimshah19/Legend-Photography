@@ -100,6 +100,7 @@ export function PageHero({
             preload={activePlayer === 0 ? "auto" : "metadata"}
             onEnded={() => handleEnded(0)}
             className={getVideoClass(activePlayer === 0)}
+            suppressHydrationWarning
           />
           <video
             ref={player1}
@@ -110,6 +111,7 @@ export function PageHero({
             preload={activePlayer === 1 ? "auto" : "metadata"}
             onEnded={() => handleEnded(1)}
             className={getVideoClass(activePlayer === 1)}
+            suppressHydrationWarning
           />
           
           <button

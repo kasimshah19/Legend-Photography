@@ -92,6 +92,7 @@ export function HomeHero() {
           preload={activePlayer === 0 ? "auto" : "metadata"}
           onEnded={() => handleEnded(0)}
           className={getVideoClass(activePlayer === 0)}
+          suppressHydrationWarning
         />
         {/* Player 1 */}
         <video
@@ -103,6 +104,7 @@ export function HomeHero() {
           preload={activePlayer === 1 ? "auto" : "metadata"}
           onEnded={() => handleEnded(1)}
           className={getVideoClass(activePlayer === 1)}
+          suppressHydrationWarning
         />
         
         {/* Toggle Sound Button */}
