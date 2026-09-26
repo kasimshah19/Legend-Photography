@@ -233,11 +233,28 @@ ODM: **Mongoose**
 
 ## 23. Problems Encountered & Solutions
 
-### Problem 1 — Horizontal Overflow on Mobile/Zoom
-- **Symptoms**: Users experienced horizontal scrolling and layout clipping when zooming in or viewing on narrow devices.
-- **Root Cause**: Unconstrained use of `100vw` and `w-screen` which doesn't account for vertical scrollbar width, alongside some fixed-width components.
-- **Solution**: Audited layout components, replacing viewport units with percentage widths (`w-full`) and capping constraints with `max-w-7xl`. Added `overflow-x-hidden` to the body wrapper.
-- **Result**: Layout scales predictably without horizontal scrollbars.
+### Problem 1 — Horizontal Overflow on Mobile and Browser Zoom
+**Problem:** 
+The application's layout broke when users viewed it on narrow mobile screens or applied browser zoom on desktop displays, causing a horizontal scrollbar to appear and content to bleed off-screen.
+
+**Symptoms:**
+- A horizontal scrollbar appeared at the bottom of the viewport.
+- Navigating the site horizontally caused white space to appear on the right edge.
+- The hero section text and navigation items clipped or collided when scaling up.
+
+**Root Cause:**
+The issue was caused by two main factors in the Tailwind CSS layout structure:
+1. **Viewport Width Units (`100vw`):** Elements using `w-screen` or `100vw` force the element to be the exact width of the viewport, ignoring the width of the vertical scrollbar. This mathematically forces the page width to exceed 100% of the available rendering space by ~15px (scrollbar width).
+2. **Fixed Width Constraints:** Several container elements possessed fixed pixel or `rem` widths that did not collapse fluidly on smaller viewports.
+
+**Solution:**
+The layout was structurally refactored to be fluid and strictly constrained:
+1. Replaced all instances of `w-screen` and `100vw` with `w-full` (100% width) across the application, which respects the parent container and scrollbar limits.
+2. Added `overflow-x-hidden` on the main `<body>` or root `<main>` wrapper to strictly clip any lingering stray pixel overflow.
+3. Replaced fixed-width properties with `max-w` constraints (e.g., `max-w-7xl mx-auto`) to allow fluid collapsing on mobile.
+
+**Result:**
+The application layout scales predictably across all devices and zoom levels without triggering horizontal scrollbars, preserving the intended cinematic visual presentation.
 
 ## 24. Design System / UI Guidelines
 - **Aesthetic**: Dark, cinematic, minimal.
