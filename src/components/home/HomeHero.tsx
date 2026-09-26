@@ -89,7 +89,7 @@ export function HomeHero() {
           muted={isMuted}
           playsInline
           autoPlay={activePlayer === 0}
-          preload="auto"
+          preload={activePlayer === 0 ? "auto" : "metadata"}
           onEnded={() => handleEnded(0)}
           className={getVideoClass(activePlayer === 0)}
         />
@@ -100,7 +100,7 @@ export function HomeHero() {
           muted={isMuted}
           playsInline
           autoPlay={activePlayer === 1}
-          preload="auto"
+          preload={activePlayer === 1 ? "auto" : "metadata"}
           onEnded={() => handleEnded(1)}
           className={getVideoClass(activePlayer === 1)}
         />
