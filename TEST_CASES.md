@@ -172,3 +172,18 @@ Use the following safe test data for testing the Contact/Inquiry flow:
 | E2E Automation (Playwright/Cypress) | Not Implemented | No framework configured |
 | Booking Calendar API | Planned | Not present in current build |
 | Portfolio Detail/Dynamic Routes | Not Implemented | Currently a flat static gallery |
+
+## 17. Build / Lint / Type Check Analysis
+The following automated build and code quality checks were executed against the codebase:
+
+| Check | Command | Result | Notes |
+|---|---|---|---|
+| Lint | 
+pm run lint | Passed (with 1 warning) | 1 unused variable warning (spanClass) in PortfolioGallery.tsx |
+| Build | 
+pm run build | Passed | Compiled optimized production build successfully in 23.0s |
+| Type Check | 
+px tsc --noEmit | Not Executed | Evaluated during build |
+| Tests | 
+pm test | Not Applicable | No automated testing framework installed |
+
