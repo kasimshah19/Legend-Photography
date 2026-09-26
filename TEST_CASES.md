@@ -1,22 +1,23 @@
 # Test Cases & QA Documentation
 
 ## Table of Contents
-1. [Testing Overview](#testing-overview)
-2. [Test Strategy](#test-strategy)
-3. [Test Environment](#test-environment)
-4. [Test Data](#test-data)
-5. [Test Case Status Definitions](#test-case-status-definitions)
-6. [Priority & Severity Definitions](#priority--severity-definitions)
-7. [Functional Test Cases](#functional-test-cases)
-8. [Responsive Test Cases](#responsive-test-cases)
-9. [Browser Zoom Test Cases](#browser-zoom-test-cases)
-10. [GSAP / Animation Test Cases](#gsap--animation-test-cases)
-11. [SEO Test Cases](#seo-test-cases)
-12. [Smoke Test Suite](#smoke-test-suite)
-13. [Regression Test Suite](#regression-test-suite)
-14. [Test Execution Summary](#test-execution-summary)
-15. [Traceability Matrix](#traceability-matrix)
-16. [Not Implemented / Not Testable Features](#not-implemented--not-testable-features)
+1. [Testing Overview](#1-testing-overview)
+2. [Test Strategy](#2-test-strategy)
+3. [Test Environment](#3-test-environment)
+4. [Test Data](#4-test-data)
+5. [Test Case Status Definitions](#5-test-case-status-definitions)
+6. [Priority & Severity Definitions](#6-priority--severity-definitions)
+7. [Functional Test Cases](#7-functional-test-cases)
+8. [Responsive Test Cases](#8-responsive-test-cases)
+9. [Browser Zoom Test Cases](#9-browser-zoom-test-cases)
+10. [GSAP / Animation Test Cases](#10-gsap--animation-test-cases)
+11. [SEO Test Cases](#11-seo-test-cases)
+12. [Smoke Test Suite](#12-smoke-test-suite)
+13. [Regression Test Suite](#13-regression-test-suite)
+14. [Test Execution Summary](#14-test-execution-summary)
+15. [Traceability Matrix](#15-traceability-matrix)
+16. [Not Implemented / Not Testable Features](#16-not-implemented--not-testable-features)
+17. [Build / Lint / Type Check Analysis](#17-build--lint--type-check-analysis)
 
 ---
 
@@ -58,132 +59,224 @@ Use the following safe test data for testing the Contact/Inquiry flow:
 - **Planned**: Feature is planned for the future.
 
 ## 6. Priority & Severity Definitions
-**Priority**:
-- **High**: Core user flow (e.g., Contact Form, Navigation).
-- **Medium**: Important UI features (e.g., Animations).
-- **Low**: Minor layout aesthetics.
-
-**Severity**:
-- **Critical**: Broken business flow or unusable site.
-- **Major**: Significant functionality impaired.
-- **Minor**: Functional issue with a workaround.
-- **Trivial**: Cosmetic issue.
+**Priority**: High / Medium / Low
+**Severity**: Critical / Major / Minor / Trivial
 
 ---
 
 ## 7. Functional Test Cases
 
 ### Navigation & Home
-| Test Case ID | Module | Test Scenario | Expected Result | Actual Result | Status | Priority | Severity |
-|---|---|---|---|---|---|---|---|
-| TC-GEN-001 | Navigation | Application loads without fatal errors | App renders primary content immediately | Not Executed | Not Executed | High | Critical |
-| TC-NAV-001 | Navigation | Click Logo from any page | Redirects to Home page | Not Executed | Not Executed | High | Major |
-| TC-NAV-002 | Navigation | Open Mobile Menu | Menu overlay appears without horizontal scroll | Not Executed | Not Executed | High | Major |
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-GEN-001 |
+| **Module** | Navigation |
+| **Test Scenario** | Application loads without fatal errors |
+| **Preconditions** | Server is running locally or deployed |
+| **Test Steps** | 1. Open browser.<br>2. Navigate to root URL (`/`).<br>3. Observe initial render. |
+| **Test Data** | N/A |
+| **Expected Result** | App renders primary content (Hero video/image) immediately with no white screen of death. |
+| **Actual Result** | Not Executed |
+| **Priority / Severity** | High / Critical |
+| **Status** | Not Executed |
+| **Notes** | Ensure console shows no hydration errors. |
 
-### Portfolio & Services
-| Test Case ID | Module | Test Scenario | Expected Result | Actual Result | Status | Priority | Severity |
-|---|---|---|---|---|---|---|---|
-| TC-PORT-001 | Portfolio | Navigate to Portfolio page | Gallery renders images via Next/Image | Not Executed | Not Executed | High | Major |
-| TC-SVC-001 | Services | Navigate to Services page | Pricing packages and FAQ render | Not Executed | Not Executed | Medium | Minor |
+<br>
+
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-NAV-001 |
+| **Module** | Navigation |
+| **Test Scenario** | Open and close Mobile Menu |
+| **Preconditions** | Viewport width < 1024px |
+| **Test Steps** | 1. Click hamburger icon.<br>2. Verify menu expands.<br>3. Click close icon.<br>4. Verify menu retracts. |
+| **Test Data** | N/A |
+| **Expected Result** | Menu overlay appears and disappears smoothly without causing horizontal scroll to the page. |
+| **Actual Result** | Not Executed |
+| **Priority / Severity** | High / Major |
+| **Status** | Not Executed |
 
 ### Contact / Inquiry Form
-| Test Case ID | Module | Test Scenario | Expected Result | Actual Result | Status | Priority | Severity |
-|---|---|---|---|---|---|---|---|
-| TC-FORM-001 | Contact | Submit form with empty fields | HTML/Browser validation prevents submission | Not Executed | Not Executed | High | Major |
-| TC-FORM-002 | Contact | Submit form with invalid email | Validation rejects input | Not Executed | Not Executed | High | Major |
-| TC-FORM-003 | Contact | Submit valid data (MongoDB connected) | Successful POST to API; UI shows success msg | Not Executed | Not Executed | High | Critical |
-| TC-FORM-004 | Contact | Submit valid data (MongoDB disconnected) | 500 API Error; UI shows graceful error msg | Not Executed | Not Executed | High | Major |
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-FORM-001 |
+| **Module** | Contact |
+| **Test Scenario** | Submit form with empty fields |
+| **Preconditions** | Navigate to `/contact` |
+| **Test Steps** | 1. Scroll to the inquiry form.<br>2. Leave all fields empty.<br>3. Click "Submit". |
+| **Test Data** | None |
+| **Expected Result** | Browser validation kicks in (e.g. `required` attribute) preventing form submission. No API call made. |
+| **Actual Result** | Not Executed |
+| **Priority / Severity** | High / Major |
+| **Status** | Not Executed |
+
+<br>
+
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-FORM-002 |
+| **Module** | Contact |
+| **Test Scenario** | Submit valid data (MongoDB connected) |
+| **Preconditions** | MongoDB URI is configured in `.env` |
+| **Test Steps** | 1. Fill out all form fields with valid test data.<br>2. Click "Submit".<br>3. Check UI state and database. |
+| **Test Data** | Name: QA Test User, Phone: 9876543210, etc. |
+| **Expected Result** | UI shows a loading state, successful POST to `/api/inquiries`, UI shows success message, and document appears in DB. |
+| **Actual Result** | Not Executed |
+| **Priority / Severity** | High / Critical |
+| **Status** | Not Executed |
 
 ---
 
 ## 8. Responsive Test Cases
-| Test Case ID | Module | Test Scenario | Expected Result | Actual Result | Status | Priority | Severity |
-|---|---|---|---|---|---|---|---|
-| TC-RESP-001 | Layout | Render at 375px (Mobile) | No horizontal scrollbars (`overflow-x-hidden` active) | Not Executed | Not Executed | High | Major |
-| TC-RESP-002 | Layout | Render at 768px (Tablet) | Grid changes to 2 columns where applicable | Not Executed | Not Executed | Medium | Minor |
-| TC-RESP-003 | Layout | Render at 1920px (Desktop) | Content constrained by `max-w-7xl` | Not Executed | Not Executed | Medium | Minor |
+
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-RESP-001 |
+| **Module** | Layout |
+| **Test Scenario** | Render at 375px (Mobile) |
+| **Preconditions** | Device emulator active in DevTools |
+| **Test Steps** | 1. Set width to 375px.<br>2. Scroll vertically through Home and Portfolio pages. |
+| **Test Data** | N/A |
+| **Expected Result** | No horizontal scrollbars appear (`overflow-x-hidden` active). Grid adjusts to 1 column. Text is not clipped. |
+| **Actual Result** | Not Executed |
+| **Priority / Severity** | High / Major |
+| **Status** | Not Executed |
+
+---
 
 ## 9. Browser Zoom Test Cases
-| Test Case ID | Module | Test Scenario | Expected Result | Actual Result | Status | Priority | Severity |
-|---|---|---|---|---|---|---|---|
-| TC-ZOOM-001 | Layout | Browser Zoom at 125% | Elements scale without bleeding off-screen | Not Executed | Not Executed | High | Major |
-| TC-ZOOM-002 | Layout | Browser Zoom at 175% | Layout switches to mobile breakpoint gracefully | Not Executed | Not Executed | High | Major |
+
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-ZOOM-001 |
+| **Module** | Layout |
+| **Test Scenario** | Browser Zoom at 125% and 150% |
+| **Preconditions** | Desktop browser (1920x1080) |
+| **Test Steps** | 1. Press Ctrl/Cmd + `+` to zoom to 150%.<br>2. Navigate through the site. |
+| **Test Data** | N/A |
+| **Expected Result** | Elements scale up gracefully. The layout constraints (`max-w-7xl`) prevent bleeding off-screen. No horizontal scrollbar. |
+| **Actual Result** | Not Executed |
+| **Priority / Severity** | High / Major |
+| **Status** | Not Executed |
+
+---
 
 ## 10. GSAP / Animation Test Cases
-| Test Case ID | Module | Test Scenario | Expected Result | Actual Result | Status | Priority | Severity |
-|---|---|---|---|---|---|---|---|
-| TC-GSAP-001 | Animations | Initial Page Load | Hero text reveals smoothly | Not Executed | Not Executed | Medium | Minor |
-| TC-GSAP-002 | Animations | Scroll down page | Sections reveal on scroll entry via ScrollTrigger | Not Executed | Not Executed | Medium | Minor |
-| TC-GSAP-003 | Animations | Navigate away and return | Animations do not duplicate or stack | Not Executed | Not Executed | High | Major |
+
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-GSAP-001 |
+| **Module** | Animations |
+| **Test Scenario** | ScrollTrigger execution |
+| **Preconditions** | Desktop browser, standard scroll speed |
+| **Test Steps** | 1. Scroll down the Home page past the hero section.<br>2. Observe section titles and images. |
+| **Test Data** | N/A |
+| **Expected Result** | Sections reveal via fade-up smoothly as they enter the viewport. |
+| **Actual Result** | Not Executed |
+| **Priority / Severity** | Medium / Minor |
+| **Status** | Not Executed |
+
+<br>
+
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-GSAP-002 |
+| **Module** | Animations |
+| **Test Scenario** | Memory Leak Prevention (Cleanup) |
+| **Preconditions** | Open DevTools Performance tab |
+| **Test Steps** | 1. Navigate from Home -> Portfolio -> Services -> Home quickly.<br>2. Scroll down on Home again. |
+| **Test Data** | N/A |
+| **Expected Result** | Animations do not duplicate, stack, or break. `useGSAP` cleanup removes old ScrollTriggers. |
+| **Actual Result** | Not Executed |
+| **Priority / Severity** | High / Major |
+| **Status** | Not Executed |
+
+---
 
 ## 11. SEO Test Cases
-| Test Case ID | Module | Test Scenario | Expected Result | Actual Result | Status | Priority | Severity |
-|---|---|---|---|---|---|---|---|
-| TC-SEO-001 | SEO | Inspect Homepage Meta | Title and description match config | Not Executed | Not Executed | Medium | Minor |
-| TC-SEO-002 | SEO | Inspect Image tags | Images have descriptive `alt` tags | Not Executed | Not Executed | Medium | Minor |
+
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-SEO-001 |
+| **Module** | SEO |
+| **Test Scenario** | Homepage Meta Tags |
+| **Preconditions** | Inspect DOM via DevTools |
+| **Test Steps** | 1. Go to Home.<br>2. Check `<head>` for `title` and `meta name="description"`. |
+| **Test Data** | N/A |
+| **Expected Result** | Title and description match the Next.js `layout.tsx` configuration exactly. |
+| **Actual Result** | Not Executed |
+| **Priority / Severity** | Medium / Minor |
+| **Status** | Not Executed |
 
 ---
 
 ## 12. Smoke Test Suite
+A rapid execution suite to determine if a build is stable enough for deployment.
+
 | ID | Smoke Test | Expected | Status |
 |---|---|---|---|
-| SMK-001 | Homepage loads | Pass | Not Executed |
-| SMK-002 | Mobile Menu works | Pass | Not Executed |
-| SMK-003 | Portfolio opens | Pass | Not Executed |
-| SMK-004 | Contact form renders | Pass | Not Executed |
-| SMK-005 | Next.js API route connects to DB | Pass | Not Executed |
+| SMK-001 | Homepage loads | Application runs | Not Executed |
+| SMK-002 | Mobile Menu works | Menu opens and closes | Not Executed |
+| SMK-003 | Portfolio opens | Gallery displays | Not Executed |
+| SMK-004 | Contact form renders | Form fields are visible | Not Executed |
+| SMK-005 | Next.js API route connects | 200 OK from `/api/inquiries` | Not Executed |
+
+---
 
 ## 13. Regression Test Suite
+Tests for previously fixed bugs that must not reappear.
+
 | ID | Module | Test Scenario | Expected Result | Status |
 |---|---|---|---|---|
-| REG-001 | Layout | Horizontal Overflow | No `100vw` bleeding | Not Executed |
-| REG-002 | Animations | ScrollTrigger Memory Leaks | `useGSAP` revert works | Not Executed |
+| REG-001 | Layout | Horizontal Overflow | No `100vw` or `w-screen` bleeding on mobile | Not Executed |
+| REG-002 | Animations | ScrollTrigger Duplication | Navigation does not clone animations | Not Executed |
 
 ---
 
 ## 14. Test Execution Summary
+
 | Category | Total | Passed | Failed | Blocked | Not Executed |
 |---|---:|---:|---:|---:|---:|
-| Functional | 7 | 0 | 0 | 0 | 7 |
-| Responsive / Zoom | 5 | 0 | 0 | 0 | 5 |
-| GSAP | 3 | 0 | 0 | 0 | 3 |
-| SEO | 2 | 0 | 0 | 0 | 2 |
-| **Total** | **17** | **0** | **0** | **0** | **17** |
+| Functional | 4 | 0 | 0 | 0 | 4 |
+| Responsive | 1 | 0 | 0 | 0 | 1 |
+| Zoom | 1 | 0 | 0 | 0 | 1 |
+| GSAP | 2 | 0 | 0 | 0 | 2 |
+| SEO | 1 | 0 | 0 | 0 | 1 |
+| **Total** | **9** | **0** | **0** | **0** | **9** |
 
 > **Note:** Tests are currently marked as "Not Executed" because manual browser verification by QA is pending.
 
 ---
 
 ## 15. Traceability Matrix
+
 | Feature | Test Case IDs |
 |---|---|
-| Navigation & Hero | TC-GEN-001, TC-NAV-001, TC-NAV-002, TC-GSAP-001 |
-| Portfolio | TC-PORT-001 |
-| Contact & DB | TC-FORM-001, TC-FORM-002, TC-FORM-003, TC-FORM-004, SMK-005 |
-| Responsive Layout | TC-RESP-001, TC-RESP-002, TC-ZOOM-001, REG-001 |
-| GSAP Cleanup | TC-GSAP-003, REG-002 |
+| Navigation & Hero | TC-GEN-001, TC-NAV-001, TC-GSAP-001 |
+| Portfolio | TC-PORT-001 (Planned) |
+| Contact & DB | TC-FORM-001, TC-FORM-002, SMK-005 |
+| Responsive Layout | TC-RESP-001, TC-ZOOM-001, REG-001 |
+| GSAP Cleanup | TC-GSAP-002, REG-002 |
 
 ---
 
 ## 16. Not Implemented / Not Testable Features
+
 | Feature | Status | Reason |
 |---|---|---|
 | User Authentication / Login | Not Implemented | No auth system in project |
-| E2E Automation (Playwright/Cypress) | Not Implemented | No framework configured |
+| E2E Automation (Playwright/Cypress) | Not Implemented | No testing framework configured in `package.json` |
 | Booking Calendar API | Planned | Not present in current build |
 | Portfolio Detail/Dynamic Routes | Not Implemented | Currently a flat static gallery |
+
+---
 
 ## 17. Build / Lint / Type Check Analysis
 The following automated build and code quality checks were executed against the codebase:
 
 | Check | Command | Result | Notes |
 |---|---|---|---|
-| Lint | 
-pm run lint | Passed (with 1 warning) | 1 unused variable warning (spanClass) in PortfolioGallery.tsx |
-| Build | 
-pm run build | Passed | Compiled optimized production build successfully in 23.0s |
-| Type Check | 
-px tsc --noEmit | Not Executed | Evaluated during build |
-| Tests | 
-pm test | Not Applicable | No automated testing framework installed |
-
+| Lint | `npm run lint` | Passed (with 1 warning) | 1 unused variable warning (`spanClass`) in `PortfolioGallery.tsx` |
+| Build | `npm run build` | Passed | Compiled optimized production build successfully in 23.0s |
+| Type Check | `npx tsc --noEmit` | Not Executed | Evaluated automatically during build step |
+| Tests | `npm test` | Not Applicable | No automated testing framework installed |
