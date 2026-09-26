@@ -14,9 +14,9 @@ import { FAQSection } from "@/components/services/FAQSection";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Photography Services",
+  title: "Photography Services & Packages | Legend Photography",
   description:
-    "Wedding, pre-wedding, maternity, portrait, fashion and event photography services.",
+    "Discover our premium photography services and packages for weddings, pre-weddings, maternity, fashion, and portraits.",
   alternates: { canonical: `${siteConfig.url}/services` },
 };
 

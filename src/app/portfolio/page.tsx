@@ -10,14 +10,14 @@ import { breadcrumbJsonLd } from "@/lib/structuredData";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Photography Portfolio | Legend Photography",
   description:
-    "Explore wedding, pre-wedding, candid, maternity, portrait and event photography.",
+    "Explore our curated photography portfolio featuring authentic wedding, pre-wedding, candid, maternity, portrait and event stories.",
   alternates: { canonical: `${siteConfig.url}/portfolio` },
   openGraph: {
-    title: "Portfolio | Legend Photography",
+    title: "Photography Portfolio | Legend Photography",
     description:
-      "Explore wedding, pre-wedding, candid, maternity, portrait and event photography.",
+      "Explore our curated photography portfolio featuring authentic wedding, pre-wedding, candid, maternity, portrait and event stories.",
     url: `${siteConfig.url}/portfolio`,
   },
 };

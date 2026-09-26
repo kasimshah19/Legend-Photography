@@ -199,13 +199,58 @@ Use the following safe test data for testing the Contact/Inquiry flow:
 |---|---|
 | **Test Case ID** | TC-SEO-001 |
 | **Module** | SEO |
-| **Test Scenario** | Homepage Meta Tags |
-| **Preconditions** | Inspect DOM via DevTools |
-| **Test Steps** | 1. Go to Home.<br>2. Check `<head>` for `title` and `meta name="description"`. |
+| **Test Scenario** | Unique Metadata per Page |
+| **Preconditions** | App running locally |
+| **Test Steps** | 1. Navigate to `/`, `/portfolio`, `/services`, `/contact`.<br>2. Inspect `<head>`.<br>3. Verify `<title>` and `<meta name="description">` are unique and match the SEO matrix. |
 | **Test Data** | N/A |
-| **Expected Result** | Title and description match the Next.js `layout.tsx` configuration exactly. |
+| **Expected Result** | Titles and descriptions are unique and accurately reflect the page content. |
 | **Actual Result** | Not Executed |
-| **Priority / Severity** | Medium / Minor |
+| **Priority / Severity** | High / Major |
+| **Status** | Not Executed |
+
+<br>
+
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-SEO-002 |
+| **Module** | SEO |
+| **Test Scenario** | Dynamic Portfolio SEO |
+| **Preconditions** | Navigate to `/portfolio/rahul-priya-wedding` |
+| **Test Steps** | 1. Inspect `<head>`.<br>2. Verify title, description, and OG image match the album data. |
+| **Test Data** | Album slug: rahul-priya-wedding |
+| **Expected Result** | Dynamic metadata is generated based on the specific album data. |
+| **Actual Result** | Not Executed |
+| **Priority / Severity** | High / Major |
+| **Status** | Not Executed |
+
+<br>
+
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-SEO-003 |
+| **Module** | SEO |
+| **Test Scenario** | Structured Data Validation |
+| **Preconditions** | Use Google Rich Results Test tool |
+| **Test Steps** | 1. Paste rendered HTML of the homepage.<br>2. Check for Organization and WebSite schema.<br>3. Paste rendered HTML of `/portfolio`.<br>4. Check for BreadcrumbList schema. |
+| **Test Data** | N/A |
+| **Expected Result** | Schema validates without errors. No fake reviews/ratings are present. |
+| **Actual Result** | Not Executed |
+| **Priority / Severity** | High / Major |
+| **Status** | Not Executed |
+
+<br>
+
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-SEO-004 |
+| **Module** | SEO |
+| **Test Scenario** | Sitemap and Robots.txt |
+| **Preconditions** | App running |
+| **Test Steps** | 1. Navigate to `/sitemap.xml`.<br>2. Navigate to `/robots.txt`. |
+| **Test Data** | N/A |
+| **Expected Result** | Sitemap lists all static and dynamic pages with absolute URLs. Robots allows all crawlers and points to the sitemap. |
+| **Actual Result** | Not Executed |
+| **Priority / Severity** | High / Major |
 | **Status** | Not Executed |
 
 ---

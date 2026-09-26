@@ -379,3 +379,5 @@ Legend Photography is a highly polished, performance-oriented frontend applicati
 ## 25. Testing & QA
 
 [Complete Test Cases & QA Documentation](./TEST_CASES.md)
+-   [ S E O   A r c h i t e c t u r e   &   G u i d e l i n e s ] ( S E O . m d )  
+ 
