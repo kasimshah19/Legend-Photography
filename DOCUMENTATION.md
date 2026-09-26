@@ -343,3 +343,36 @@ npm run dev
 
 ## 36. Final Project Summary
 Legend Photography is a highly polished, performance-oriented frontend application with a lightweight serverless backend. It leverages the Next.js App Router for optimal loading and SEO, Tailwind for rapid responsive styling, and GSAP for premium interactions. The architecture is currently stable for production use as a lead-generation portfolio, with clear pathways established for future CMS and admin integrations.
+## Architecture & Workflow Diagrams
+
+| Diagram | File | Purpose |
+|---|---|---|
+| System Architecture | [diagrams/01-system-architecture.md](./diagrams/01-system-architecture.md) | High-level system overview |
+| User Flow | [diagrams/03-user-flow.md](./diagrams/03-user-flow.md) | Visitor journey |
+| Contact Inquiry Sequence | [diagrams/08-contact-inquiry-sequence.md](./diagrams/08-contact-inquiry-sequence.md) | API and DB interaction flow |
+| GSAP Animation Flow | [diagrams/10-gsap-animation-flow.md](./diagrams/10-gsap-animation-flow.md) | Lifecycle of animations |
+
+### Final Diagram Inventory
+| # | Diagram | Status | Source |
+|---|---|---|---|
+| 01 | System Architecture | Implemented | diagrams/01-system-architecture.md |
+| 02 | Application Architecture | Not Applicable | Subsumed by System Architecture |
+| 03 | User Flow | Implemented | diagrams/03-user-flow.md |
+| 04 | Page Navigation Flow | Not Applicable | Outlined in Documentation Sec 7 |
+| 05 | Data Flow | Not Applicable | Simple static data |
+| 06 | Request Response Flow | Not Applicable | Subsumed by Contact Sequence |
+| 07 | Portfolio Flow | Not Applicable | Standard static rendering |
+| 08 | Contact Inquiry Sequence | Implemented | diagrams/08-contact-inquiry-sequence.md |
+| 09 | Frontend Component Architecture | Not Applicable | Simple hierarchy |
+| 10 | GSAP Animation Flow | Implemented | diagrams/10-gsap-animation-flow.md |
+| 11 | Media Loading Flow | Not Applicable | Next.js defaults |
+| 12 | Database ERD | Not Applicable | Single flat document structure |
+| 13 | API Sequence | Not Applicable | Subsumed by Contact Sequence |
+| 14 | Deployment Architecture | Not Applicable | Standard Vercel deployment assumed |
+| 15 | CI/CD Flow | Not Applicable | No CI/CD configuration files exist |
+| 16 | Security Flow | Not Applicable | No authentication implemented |
+| 17 | Rendering SEO Flow | Not Applicable | Standard Next.js |
+| 18 | Error Handling Flow | Not Applicable | Subsumed by Contact Sequence |
+| 19 | Responsive Rendering Flow | Not Applicable | Standard Tailwind CSS |
+| 20 | Complete User Journey | Not Applicable | Subsumed by User Flow |
+
