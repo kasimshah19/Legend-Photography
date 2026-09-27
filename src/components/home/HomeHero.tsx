@@ -151,13 +151,16 @@ export function HomeHero() {
 
       <div className="section-padding relative z-10 mx-auto w-full max-w-[1400px] pb-16 pt-32 md:pb-24 md:pt-40">
         <p className="hero-elem text-[0.6875rem] font-medium uppercase tracking-[0.35em] text-white/80">
-          {siteConfig.name.toUpperCase()}
+          LEGEND PHOTOGRAPHY
         </p>
         <h1 className="hero-elem mt-4 max-w-4xl font-serif text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1.08] text-white">
-          Stories That Deserve
+          Premium Wedding & 
           <br />
-          To Be Remembered.
+          Portrait Photography.
         </h1>
+        <p className="hero-elem mt-6 max-w-xl text-base leading-relaxed text-white/80 md:text-lg whitespace-pre-line">
+          Stories that deserve to be remembered, captured with elegance and authenticity.
+        </p>
         <div className="hero-elem mt-8 flex flex-wrap items-center gap-2 md:gap-3">
           {["Wedding", "Pre-Wedding", "Candid", "Maternity", "Fashion", "Events"].map((item) => (
             <span 

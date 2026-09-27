@@ -3,11 +3,11 @@ import { siteConfig } from "@/data/siteConfig";
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": "PhotographyStudio",
     name: siteConfig.name,
-    description: siteConfig.description,
+    description: siteConfig.seo.defaultDescription,
     url: siteConfig.url,
-    sameAs: [siteConfig.instagram.url],
+    sameAs: [siteConfig.instagram.url, ...(siteConfig.youtube.url ? [siteConfig.youtube.url] : [])],
     ...(siteConfig.email ? { email: siteConfig.email } : {}),
     ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
     ...(siteConfig.location.address
@@ -30,6 +30,11 @@ export function webSiteJsonLd() {
     "@type": "WebSite",
     name: siteConfig.name,
     url: siteConfig.url,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${siteConfig.url}/portfolio?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 

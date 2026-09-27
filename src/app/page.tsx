@@ -12,10 +12,14 @@ import { CTASection } from "@/components/CTASection";
 import { siteConfig } from "@/data/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Legend Photography | Premium Wedding & Pre-Wedding Photography",
-  description:
-    "Legend Photography is a premium photography studio specializing in authentic wedding, pre-wedding, maternity, and portrait photography.",
+  title: siteConfig.seo.defaultTitle,
+  description: siteConfig.seo.defaultDescription,
   alternates: { canonical: siteConfig.url },
+  openGraph: {
+    title: siteConfig.seo.defaultTitle,
+    description: siteConfig.seo.defaultDescription,
+    url: siteConfig.url,
+  }
 };
 
 export default function HomePage() {

@@ -23,26 +23,39 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Legend Photography | Wedding & Pre-Wedding Photography",
-    template: "%s | Legend Photography",
+    default: siteConfig.seo.defaultTitle,
+    template: siteConfig.seo.titleTemplate,
   },
-  description: siteConfig.description,
+  description: siteConfig.seo.defaultDescription,
   openGraph: {
     type: "website",
     locale: "en_IN",
     siteName: siteConfig.name,
-    title: "Legend Photography | Wedding & Pre-Wedding Photography",
-    description: siteConfig.description,
-    images: [{ url: "/images/hero/indian-wedding-hero.jpg", width: 2400, height: 1600 }],
+    title: siteConfig.seo.defaultTitle,
+    description: siteConfig.seo.defaultDescription,
+    images: [{ url: siteConfig.seo.defaultOgImage, width: 2400, height: 1600, alt: "Legend Photography" }],
+    url: siteConfig.url,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Legend Photography",
-    description: siteConfig.description,
-    images: ["/images/hero/indian-wedding-hero.jpg"],
+    title: siteConfig.seo.defaultTitle,
+    description: siteConfig.seo.defaultDescription,
+    images: [siteConfig.seo.defaultOgImage],
+    creator: "@legendphotography",
   },
   alternates: {
     canonical: siteConfig.url,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

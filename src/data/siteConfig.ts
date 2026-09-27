@@ -3,7 +3,7 @@ export const siteConfig = {
   legalName: "Legend Photography",
   tagline: "Stories That Deserve To Be Remembered.",
   description:
-    "Professional wedding, pre-wedding, candid, maternity, portrait and event photography.",
+    "Legend Photography is a premium photography studio specializing in authentic wedding, pre-wedding, candid, maternity, portrait, and event photography.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 
   instagram: {
@@ -38,6 +38,13 @@ export const siteConfig = {
 
   primaryCta: { label: "Book a Shoot", href: "/contact" },
   secondaryCta: { label: "View Portfolio", href: "/portfolio" },
+  
+  seo: {
+    defaultTitle: "Legend Photography | Premium Wedding & Pre-Wedding Photography",
+    titleTemplate: "%s | Legend Photography",
+    defaultDescription: "Legend Photography is a premium photography studio specializing in authentic wedding, pre-wedding, candid, maternity, portrait, and event photography.",
+    defaultOgImage: "/images/hero/indian-wedding-hero.jpg",
+  }
 } as const;
 
 export function whatsappUrl(message?: string): string | null {

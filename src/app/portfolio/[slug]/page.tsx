@@ -34,11 +34,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: album.description,
     alternates: { canonical: `${siteConfig.url}/portfolio/${album.slug}` },
     openGraph: {
+      type: "article",
       title,
       description: album.description,
       url: `${siteConfig.url}/portfolio/${album.slug}`,
       images: [{ url: album.coverImage, width: 1200, height: 630, alt: album.title }],
     },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: album.description,
+      images: [album.coverImage],
+    }
   };
 }
 
@@ -56,12 +63,30 @@ export default async function AlbumPage({ params }: Props) {
     { name: album.title, url: `${siteConfig.url}/portfolio/${album.slug}` },
   ]);
 
+  const webPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    name: album.title,
+    description: album.description,
+    url: `${siteConfig.url}/portfolio/${album.slug}`,
+    image: album.coverImage,
+    creator: {
+      "@type": "PhotographyStudio",
+      name: siteConfig.name,
+    },
+  };
+
   return (
     <>
       <Script
-        id={`json-ld-album-${album.slug}`}
+        id={`json-ld-album-breadcrumb-${album.slug}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      <Script
+        id={`json-ld-album-webpage-${album.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
       />
       <Navbar variant="light" />
       

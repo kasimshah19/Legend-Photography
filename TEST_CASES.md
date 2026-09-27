@@ -253,6 +253,54 @@ Use the following safe test data for testing the Contact/Inquiry flow:
 | **Priority / Severity** | High / Major |
 | **Status** | Not Executed |
 
+<br>
+
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-SEO-005 |
+| **Module** | SEO |
+| **Test Scenario** | Crawlable Links |
+| **Preconditions** | App running |
+| **Test Steps** | 1. Navigate to homepage.<br>2. Hover over internal links.<br>3. Verify they are standard `<a>` tags. |
+| **Expected Result** | All main navigation and internal links use `<a>` with a valid `href`. |
+| **Status** | Passed |
+
+<br>
+
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-SEO-006 |
+| **Module** | SEO |
+| **Test Scenario** | H1 and Heading Hierarchy |
+| **Preconditions** | App running |
+| **Test Steps** | 1. Navigate to all major pages (`/`, `/portfolio`, `/services`, `/contact`).<br>2. Verify each has exactly one `<h1>`.<br>3. Verify proper nested hierarchy (`<h2>`, `<h3>`). |
+| **Expected Result** | Proper heading hierarchy without multiple `<h1>`s. |
+| **Status** | Passed |
+
+<br>
+
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-SEO-007 |
+| **Module** | SEO |
+| **Test Scenario** | Open Graph and Twitter Metadata |
+| **Preconditions** | App running |
+| **Test Steps** | 1. Navigate to all major pages.<br>2. Verify `og:title`, `og:description`, `og:url`, `og:image` and Twitter counterparts. |
+| **Expected Result** | Metadata is valid, images are absolute URLs, and content matches the page intent. |
+| **Status** | Passed |
+
+<br>
+
+| Field | Value |
+|---|---|
+| **Test Case ID** | TC-SEO-008 |
+| **Module** | SEO |
+| **Test Scenario** | Image Alt Text |
+| **Preconditions** | App running |
+| **Test Steps** | 1. Navigate to portfolio and home pages.<br>2. Verify images have descriptive `alt` tags and proper dimensions. |
+| **Expected Result** | Images are accessible and optimized for image search. |
+| **Status** | Passed |
+
 ---
 
 ## 12. Smoke Test Suite

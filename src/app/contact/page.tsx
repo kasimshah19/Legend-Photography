@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   description:
     "Get in touch with Legend Photography for wedding, pre-wedding, maternity and portrait photography enquiries.",
   alternates: { canonical: `${siteConfig.url}/contact` },
+  openGraph: {
+    title: "Contact Legend Photography | Book Your Shoot",
+    description: "Get in touch with Legend Photography for wedding, pre-wedding, maternity and portrait photography enquiries.",
+    url: `${siteConfig.url}/contact`,
+  },
 };
 
 export default function ContactPage() {
