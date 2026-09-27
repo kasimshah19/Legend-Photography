@@ -21,9 +21,8 @@ export const siteConfig = {
   email: process.env.NEXT_PUBLIC_EMAIL ?? "",
 
   location: {
-    /** Placeholder — update when verified */
-    city: "",
-    state: "",
+    city: "Dondaicha",
+    state: "Maharashtra",
     country: "India",
     address: process.env.NEXT_PUBLIC_BUSINESS_ADDRESS ?? "",
     googleMapsUrl: process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL ?? "",
