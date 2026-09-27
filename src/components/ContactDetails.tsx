@@ -8,7 +8,15 @@ export function ContactDetails() {
     <div className="grid gap-10 border-t border-border pt-12 md:grid-cols-2">
       <div>
         <h2 className="font-serif text-2xl">{siteConfig.name}</h2>
-        {siteConfig.location.address ? (
+        {siteConfig.location.formattedAddress ? (
+          <div className="mt-3 text-sm text-muted leading-relaxed">
+            {siteConfig.location.formattedAddress.map((line, index) => (
+              <span key={index} className="block">
+                {line}
+              </span>
+            ))}
+          </div>
+        ) : siteConfig.location.address ? (
           <p className="mt-3 text-sm text-muted leading-relaxed">
             {siteConfig.location.address}
           </p>

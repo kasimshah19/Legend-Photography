@@ -23,18 +23,20 @@ export const siteConfig = {
   location: {
     address: process.env.NEXT_PUBLIC_BUSINESS_ADDRESS ?? "",
     formattedAddress: [
-      "Jahind Colony, Near Alpha Computer",
-      "Dondaicha, District Dhule",
-      "Maharashtra - 425408, India"
+      "Jayhind Colony Rd,",
+      "Shree Mangal Harchand Nagar,",
+      "Vikharan, Dondaicha,",
+      "Maharashtra 425408,",
+      "District Dhule, Maharashtra, India"
     ],
     structured: {
-      streetAddress: "Jahind Colony, Near Alpha Computer",
+      streetAddress: "Jayhind Colony Rd, Shree Mangal Harchand Nagar, Vikharan",
       addressLocality: "Dondaicha",
       addressRegion: "Maharashtra",
       postalCode: "425408",
       addressCountry: "IN",
     },
-    mapQuery: "Jahind Colony, Near Alpha Computer, Dondaicha, 425408",
+    mapQuery: "Jayhind Colony Rd, Shree Mangal Harchand Nagar, Vikharan, Dondaicha, Maharashtra 425408, District Dhule, Maharashtra, India",
     googleMapsUrl: process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL ?? "",
   },
 

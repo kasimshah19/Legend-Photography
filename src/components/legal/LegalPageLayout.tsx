@@ -32,6 +32,16 @@ export function LegalPageLayout({ title, eyebrow, description, children }: Legal
             <p className="mt-4 text-muted">
               Please contact us via our <Link href="/contact" className="text-accent underline">contact page</Link> or email us directly at {legalConfig.contactEmail ? <a href={`mailto:${legalConfig.contactEmail}`} className="text-accent underline">{legalConfig.contactEmail}</a> : "[Email configurable via .env]"}.
             </p>
+            {legalConfig.businessAddress && (
+              <div className="mt-6 text-sm text-muted">
+                <p className="font-semibold">{legalConfig.businessName}</p>
+                <div className="mt-2">
+                  {legalConfig.businessAddress.split(", ").map((line, i) => (
+                    <span key={i} className="block">{line}{i < legalConfig.businessAddress!.split(", ").length - 1 ? "," : ""}</span>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
