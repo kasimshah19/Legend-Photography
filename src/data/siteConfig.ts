@@ -12,7 +12,7 @@ export const siteConfig = {
   },
   
   youtube: {
-    url: process.env.NEXT_PUBLIC_YOUTUBE_URL ?? "",
+    url: normalizeYoutubeUrl(process.env.NEXT_PUBLIC_YOUTUBE_URL ?? ""),
   },
 
   /** Set in .env — leave empty until verified */
@@ -21,8 +21,8 @@ export const siteConfig = {
   email: process.env.NEXT_PUBLIC_EMAIL ?? "",
 
   location: {
-    city: "Dondaicha",
-    state: "Maharashtra",
+    city: "",
+    state: "",
     country: "India",
     address: process.env.NEXT_PUBLIC_BUSINESS_ADDRESS ?? "",
     googleMapsUrl: process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL ?? "",
@@ -57,4 +57,18 @@ export function telUrl(): string | null {
   const digits = siteConfig.phone.replace(/\D/g, "");
   if (!digits) return null;
   return `tel:+${digits.startsWith("91") ? digits : `91${digits}`}`;
+}
+
+export function normalizeYoutubeUrl(rawUrl: string): string {
+  if (!rawUrl) return "";
+  try {
+    const url = new URL(rawUrl);
+    // Remove all query params, e.g., fbclid
+    url.search = "";
+    // Re-decode %40 so it stays as @ in the clean string representation
+    return url.toString().replace(/%40/i, "@");
+  } catch {
+    // If unparseable, strip blindly
+    return rawUrl.split("?")[0].replace(/%40/i, "@");
+  }
 }
