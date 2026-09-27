@@ -190,7 +190,7 @@ This project is optimized for deployment on Vercel.
 **Kasim Shah**  
 *Co-Founder & Sales at [VierLabs](https://vierlabs.com/)*
 
-> "Turns conversations into partnerships. Kasim leads client relationships and makes sure every project starts with the right understanding."
+> "Turning conversations into strategic partnerships. Kasim leads global client relationships, driving business growth and ensuring every high-end digital project starts with a profound understanding of the brand's core vision. With a sharp focus on sales strategy and client success, he bridges the gap between technical execution and business objectives at VierLabs."
 
 **Connect with Kasim:**
 - VierLabs: [vierlabs.com](https://vierlabs.com/)
