@@ -7,7 +7,7 @@
 
 <br>
 
-> *"Turning conversations into strategic partnerships. Driving business growth and ensuring every high-end digital project starts with a profound understanding of the brand's core vision."*
+> *"Turning initial conversations into highly strategic, long-term partnerships. I believe that true digital innovation doesn't start with code—it starts with a profound, uncompromising understanding of a brand's core vision and market positioning. By aligning high-level business objectives with cutting-edge technical execution, I drive exponential business growth, ensuring that every high-end digital project we architect at VierLabs is built to scale, perform, and dominate its industry."*
 
 ---
 
