@@ -63,7 +63,7 @@ Whether you're looking to start a new high-end web project, discuss technical st
 - 👨‍💻 **Portfolio:** [kasim-portfolio-umber.vercel.app](https://kasim-portfolio-umber.vercel.app/)
 - 🤝 **LinkedIn:** [Connect on LinkedIn](https://www.linkedin.com/in/kasim-shah-176175340/)
 - 🐙 **GitHub:** [@kasimshah19](https://github.com/kasimshah19)
-- ✉️ **Email:** kasim@vierlabs.com *(example)*
+- ✉️ **Email:** [kasimshah998@gmail.com](mailto:kasimshah998@gmail.com)
 
 <br>
 
