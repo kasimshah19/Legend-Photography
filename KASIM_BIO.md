@@ -14,7 +14,7 @@
 ## 🚀 About Kasim
 
 <div align="center" style="margin: 20px 0;">
-  <img src="./public/images/kasim/ChatGPT Image Sep 12, 2026, 02_43_57 PM.png" alt="Kasim Shah Professional" width="400" style="border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+  <img src="./public/images/kasim/kasim.png" alt="Kasim Shah Professional" width="400" style="border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
 </div>
 
 Kasim Shah is a dynamic and visionary Co-Founder who drives the sales, client relations, and strategic scaling at **VierLabs**. Operating at the rare intersection of high-level business strategy and deep technical architecture, Kasim is uniquely positioned to translate complex technical jargon into compelling business value. He has established himself as a trusted advisor to elite clientele, global brands, and high-end creative agencies who demand perfection.
