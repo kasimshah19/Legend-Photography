@@ -145,9 +145,12 @@ export function Footer() {
       </div>
 
       <div className="border-t border-border">
-        <div className="section-padding mx-auto flex max-w-[1400px] flex-col gap-2 py-6 text-xs text-muted md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
-          <p>Crafted for portfolio, trust &amp; inquiry.</p>
+        <div className="section-padding mx-auto flex max-w-[1400px] flex-col gap-4 py-6 text-xs text-muted md:flex-row md:items-center md:justify-between text-center md:text-left">
+          <p className="flex-1">© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
+          <p className="flex-1 md:text-center">
+            Designed &amp; Built by <a href="https://vierlabs.com/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent underline underline-offset-2">VierLabs</a>
+          </p>
+          <p className="flex-1 md:text-right">Crafted for portfolio, trust &amp; inquiry.</p>
         </div>
       </div>
     </footer>
