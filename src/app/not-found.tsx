@@ -21,7 +21,7 @@ export default function NotFoundPage() {
             Page Not Found.
           </h1>
           <p className="mx-auto mt-6 max-w-md text-muted">
-            The page you're looking for doesn't exist, has been moved, or is temporarily unavailable.
+            The page you&apos;re looking for doesn&apos;t exist, has been moved, or is temporarily unavailable.
           </p>
           
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">

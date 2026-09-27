@@ -13,12 +13,7 @@ import { Lightbox } from "@/components/Lightbox";
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/cn";
 
-const spanClass = (item: PortfolioItem, i: number) => {
-  if (item.layout === "wide") return "md:col-span-2";
-  if (item.layout === "tall") return "md:row-span-2";
-  if (i % 5 === 0) return "md:col-span-2 md:row-span-2";
-  return "";
-};
+
 
 export function PortfolioGallery() {
   const searchParams = useSearchParams();
