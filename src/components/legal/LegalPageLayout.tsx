@@ -5,18 +5,22 @@ import Link from "next/link";
 
 interface LegalPageLayoutProps {
   title: string;
+  eyebrow?: string;
+  description?: string;
   children: ReactNode;
 }
 
-export function LegalPageLayout({ title, children }: LegalPageLayoutProps) {
+export function LegalPageLayout({ title, eyebrow, description, children }: LegalPageLayoutProps) {
   return (
     <>
       <Navbar variant="dark" />
       <div className="section-padding bg-background py-20 md:py-32">
         <div className="mx-auto max-w-[800px]">
-          <div className="mb-12 border-b border-border pb-8">
+          <div className="mb-12 border-b border-border pb-12">
+            {eyebrow && <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.2em] text-muted">{eyebrow}</span>}
             <h1 className="font-serif text-4xl text-foreground md:text-5xl">{title}</h1>
-            <p className="mt-4 text-sm tracking-wide text-muted uppercase">
+            {description && <p className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground/80">{description}</p>}
+            <p className="mt-8 text-sm tracking-wide text-muted uppercase">
               Last Updated: {legalConfig.lastUpdated}
             </p>
           </div>
