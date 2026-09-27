@@ -206,8 +206,8 @@ This project is optimized for deployment on Vercel.
 > "Turning complex technical challenges into elegant, scalable solutions. Sohel leads product strategy and development at VierLabs, architecting robust digital platforms that merge cutting-edge technology with seamless user experiences. With a deep expertise in engineering and product vision, he ensures every solution is built for maximum performance, reliability, and long-term success."
 
 **Connect with Sohel:**
-- LinkedIn: [Sohel Shaikh](https://www.linkedin.com/in/sohel-shaikh-151034293/)
-- GitHub: [@sohelshaikh14](https://github.com/sohelshaikh14)
+- LinkedIn: [mo-sohel](https://www.linkedin.com/in/mo-sohel/)
+- GitHub: [@m-sohel](https://github.com/m-sohel)
 
 ---
 
