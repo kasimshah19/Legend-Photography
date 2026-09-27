@@ -15,4 +15,12 @@ export const legalConfig = {
   deliveryTimeline: null,
   governingLaw: null,
   jurisdiction: null,
+  
+  // Cookie & Tracking Policy
+  cookiePolicyLastUpdated: "2026-09-27",
+  analyticsEnabled: false,
+  analyticsProvider: null,
+  usesNonEssentialCookies: false,
+  usesThirdPartyEmbeds: false,
+  cookieConsentEnabled: false,
 };
