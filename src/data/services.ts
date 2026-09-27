@@ -45,6 +45,22 @@ export const services: ServiceItem[] = [
     portfolioFilter: "pre-wedding",
   },
   {
+    id: "engagement",
+    title: "Engagement Photography",
+    description: "Capturing the start of your forever with beautiful, authentic moments.",
+    image: "/images/portfolio/prewedding-01.jpg",
+    imageAlt: "Engagement photography by Legend Photography",
+    features: [
+      "Ring exchange",
+      "Couple portraits",
+      "Family moments",
+      "Candid shots",
+      "Event coverage",
+    ],
+    cta: { label: "View Work", href: "/portfolio?category=engagement" },
+    portfolioFilter: "engagement",
+  },
+  {
     id: "maternity",
     title: "Maternity Photography",
     description:
