@@ -23,15 +23,16 @@ export function StudioLocation() {
             <h3 className="font-serif text-2xl mb-6">{studio.name}</h3>
             
             <address className="not-italic text-muted leading-loose mb-10 text-sm md:text-base">
-              {studio.address}
-              {studio.city || studio.state ? (
-                <>
-                  <br />
-                  {[studio.city, studio.state].filter(Boolean).join(", ")}
-                </>
-              ) : null}
-              <br />
-              {studio.country}
+              {studio.formattedAddress ? (
+                studio.formattedAddress.map((line, index) => (
+                  <span key={index}>
+                    {line}
+                    {index < studio.formattedAddress.length - 1 && <br />}
+                  </span>
+                ))
+              ) : (
+                studio.address
+              )}
             </address>
 
             {studio.googleMapsUrl && (
@@ -50,7 +51,7 @@ export function StudioLocation() {
             {studio.googleMapsUrl ? (
               <iframe
                 src={`https://maps.google.com/maps?q=${encodeURIComponent(
-                  [studio.address, studio.city, studio.state, studio.country].filter(Boolean).join(", ")
+                  studio.address
                 )}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
                 width="100%"
                 height="100%"

@@ -14,10 +14,10 @@ export function organizationJsonLd() {
       ? {
           address: {
             "@type": "PostalAddress",
-            streetAddress: siteConfig.location.address,
-            addressLocality: siteConfig.location.city || undefined,
-            addressRegion: siteConfig.location.state || undefined,
-            addressCountry: siteConfig.location.country,
+            streetAddress: siteConfig.location.structured.streetAddress,
+            addressLocality: siteConfig.location.structured.addressLocality,
+            addressRegion: siteConfig.location.structured.addressRegion,
+            addressCountry: siteConfig.location.structured.addressCountry,
           },
         }
       : {}),

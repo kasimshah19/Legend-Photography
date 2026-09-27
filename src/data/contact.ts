@@ -9,10 +9,8 @@ export const contactData = {
   },
   studio: {
     name: siteConfig.name,
-    address: siteConfig.location.address || "Dondaicha, India",
-    city: siteConfig.location.city || "",
-    state: siteConfig.location.state || "",
-    country: siteConfig.location.country || "India",
+    address: siteConfig.location.address || "Jahind Colony, Near Alpha Computer, Dondaicha, District Dhule, Maharashtra, India",
+    formattedAddress: siteConfig.location.formattedAddress,
     googleMapsUrl: siteConfig.location.googleMapsUrl || "https://maps.google.com/",
     latitude: null,
     longitude: null,

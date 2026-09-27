@@ -21,10 +21,18 @@ export const siteConfig = {
   email: process.env.NEXT_PUBLIC_EMAIL ?? "",
 
   location: {
-    city: "Dondaicha",
-    state: "Maharashtra",
-    country: "India",
     address: process.env.NEXT_PUBLIC_BUSINESS_ADDRESS ?? "",
+    formattedAddress: [
+      "Jahind Colony, Near Alpha Computer",
+      "Dondaicha, District Dhule",
+      "Maharashtra, India"
+    ],
+    structured: {
+      streetAddress: "Jahind Colony, Near Alpha Computer",
+      addressLocality: "Dondaicha",
+      addressRegion: "Maharashtra",
+      addressCountry: "IN",
+    },
     googleMapsUrl: process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL ?? "",
   },
 
