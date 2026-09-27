@@ -195,5 +195,5 @@ This project is optimized for deployment on Vercel.
 - GitHub: [@kasimshah19](https://github.com/kasimshah19)
 
 ---
-*Developed for Legend Photography.*  
+*© 2026 Legend Photography. All rights reserved.*  
 *Designed & Built by [VierLabs](https://vierlabs.com/)*
