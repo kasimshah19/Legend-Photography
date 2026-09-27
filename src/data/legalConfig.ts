@@ -9,6 +9,7 @@ export const legalConfig = {
   bookingAdvance: null,
   paymentTerms: null,
   cancellationWindow: null,
+  cancellationPolicy: null,
   refundPolicy: null,
   reschedulingPolicy: null,
   deliveryTimeline: null,
