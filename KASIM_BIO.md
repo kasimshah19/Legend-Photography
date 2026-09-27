@@ -55,6 +55,8 @@ Kasim's deep understanding of scalable systems and software architecture is back
 | :--- | :--- | :--- | :--- |
 | **B.Tech in Computer Technology** | **Ahinsa Institute of Technology, Dondaicha**<br>*(Affiliated to DBATU, Maharashtra)* | Sep 2023 – Jun 2027 | **Focus:** Full Stack Web Development & MERN Stack.<br>**Activities:** Technical Learning, Problem Solving, GitHub Projects, Building Real-World Applications. |
 | **Diploma in Computer Technology** | **Ahinsa Institute of Technology, Dondaicha**<br>*(Affiliated to MSBTE, Maharashtra)* | Jul 2021 – Jun 2023 | **Focus:** DBMS, Computer Networks, OS, Software Engineering, & Web Development.<br>**Activities:** Programming, Technical Projects, Team Collaboration. |
+| **Senior Secondary (Class XII - Science)** | **RDMP College of Science, Dondaicha**<br>*(Maharashtra State Board, Pune)* | Completed | **Focus:** Core Sciences (Physics, Chemistry, Mathematics).<br>**Activities:** Academic Excellence, Foundation in Analytical Thinking. |
+| **Secondary School Certificate (Class X)** | **Anglo Urdu High School, Dondaicha**<br>*(Maharashtra State Board, Pune)* | 2018 – 2019 | **Focus:** General Academic Excellence.<br>**Activities:** Core Education, Strong Foundation in Sciences & Mathematics. |
 
 This comprehensive foundation enables him to not only speak the language of enterprise clients and high-level stakeholders but also to work seamlessly alongside elite engineering teams.
 
