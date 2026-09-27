@@ -23,10 +23,8 @@ export const siteConfig = {
   location: {
     address: process.env.NEXT_PUBLIC_BUSINESS_ADDRESS ?? "",
     formattedAddress: [
-      "Jayhind Colony Road,",
-      "Shree Mangal Harchand Nagar,",
-      "Vikharan, Dondaicha,",
-      "District Dhule,",
+      "Jayhind Colony Road, Shree Mangal Harchand Nagar,",
+      "Vikharan, Dondaicha, District Dhule,",
       "Maharashtra 425408, India"
     ],
     structured: {
