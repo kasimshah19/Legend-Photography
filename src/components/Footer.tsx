@@ -7,7 +7,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border bg-background">
-      <div className="section-padding mx-auto grid max-w-[1400px] gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+      <div className="section-padding mx-auto grid max-w-[1400px] gap-12 py-16 md:grid-cols-2 lg:grid-cols-5 lg:gap-8">
         <div className="lg:col-span-2">
           <p className="font-serif text-xl tracking-wide">{siteConfig.name}</p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
@@ -107,6 +107,34 @@ export function Footer() {
             ) : (
               <li className="text-muted">Email — configure in .env</li>
             )}
+          </ul>
+        </div>
+
+        <div>
+          <p className="text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-muted">
+            Legal
+          </p>
+          <ul className="mt-4 space-y-2">
+            <li>
+              <Link href="/privacy-policy" className="text-sm text-foreground transition-colors hover:text-accent">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link href="/terms-and-conditions" className="text-sm text-foreground transition-colors hover:text-accent">
+                Terms &amp; Conditions
+              </Link>
+            </li>
+            <li>
+              <Link href="/refund-cancellation-policy" className="text-sm text-foreground transition-colors hover:text-accent">
+                Refund Policy
+              </Link>
+            </li>
+            <li>
+              <Link href="/cookie-policy" className="text-sm text-foreground transition-colors hover:text-accent">
+                Cookie Policy
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
