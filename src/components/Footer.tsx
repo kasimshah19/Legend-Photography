@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig, whatsappUrl, telUrl } from "@/data/siteConfig";
+import { GiantTypography } from "./GiantTypography";
 
 export function Footer() {
   const wa = whatsappUrl();
@@ -150,6 +151,10 @@ export function Footer() {
             </li>
           </ul>
         </div>
+      </div>
+
+      <div className="overflow-hidden border-t border-border pt-12 pb-4">
+        <GiantTypography />
       </div>
 
       <div className="border-t border-border">
