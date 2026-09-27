@@ -185,11 +185,15 @@ This project is optimized for deployment on Vercel.
 
 ---
 
-## Author
+## Project Lead
 
-**Kasim Shah**
+**Kasim Shah**  
+*Co-Founder & Sales at [VierLabs](https://vierlabs.com/)*
+
+> "Turns conversations into partnerships. Kasim leads client relationships and makes sure every project starts with the right understanding."
 
 **Connect with me:**
+- VierLabs: [vierlabs.com](https://vierlabs.com/)
 - Portfolio: [kasim-portfolio-umber.vercel.app](https://kasim-portfolio-umber.vercel.app/)
 - LinkedIn: [Kasim Shah](https://www.linkedin.com/in/kasim-shah-176175340/)
 - GitHub: [@kasimshah19](https://github.com/kasimshah19)
