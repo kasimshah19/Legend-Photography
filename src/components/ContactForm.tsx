@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { cn } from "@/lib/cn";
 
@@ -46,6 +47,8 @@ export function ContactForm() {
   );
   const [serverError, setServerError] = useState("");
 
+  const router = useRouter();
+
   const validate = (): FormErrors => {
     const next: FormErrors = {};
     if (!form.name.trim()) next.name = "Full name is required.";
@@ -77,23 +80,12 @@ export function ContactForm() {
       if (!res.ok) throw new Error(data.error ?? "Something went wrong.");
       setStatus("success");
       setForm(initial);
+      router.push("/thank-you");
     } catch (err) {
       setStatus("error");
       setServerError(err instanceof Error ? err.message : "Request failed.");
     }
   };
-
-  if (status === "success") {
-    return (
-      <div className="border border-border bg-white/50 p-10 text-center md:p-14">
-        <h2 className="font-serif text-3xl">Thank you!</h2>
-        <p className="mt-4 text-muted">We&apos;ll get back to you shortly.</p>
-        <div className="mt-8 flex justify-center">
-          <WhatsAppButton label="Continue on WhatsApp" />
-        </div>
-      </div>
-    );
-  }
 
   const field = (
     name: keyof FormState,
