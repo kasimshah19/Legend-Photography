@@ -212,5 +212,8 @@ This project is optimized for deployment on Vercel.
 ---
 
 ---
-*© 2026 Legend Photography. All rights reserved.*  
-*Designed & Built by [VierLabs](https://vierlabs.com/)*
+
+<div align="center">
+  <em>© 2026 Legend Photography. All rights reserved.</em><br>
+  <em>Designed & Built by <a href="https://vierlabs.com/">VierLabs</a></em>
+</div>
