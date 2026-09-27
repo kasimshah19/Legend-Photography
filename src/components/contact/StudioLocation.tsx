@@ -51,7 +51,7 @@ export function StudioLocation() {
             {studio.googleMapsUrl ? (
               <iframe
                 src={`https://maps.google.com/maps?q=${encodeURIComponent(
-                  studio.address
+                  studio.mapQuery || studio.address
                 )}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
                 width="100%"
                 height="100%"

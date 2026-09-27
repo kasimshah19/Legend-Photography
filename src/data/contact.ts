@@ -11,6 +11,7 @@ export const contactData = {
     name: siteConfig.name,
     address: siteConfig.location.address || "Jahind Colony, Near Alpha Computer, Dondaicha, District Dhule, Maharashtra, India",
     formattedAddress: siteConfig.location.formattedAddress,
+    mapQuery: siteConfig.location.mapQuery,
     googleMapsUrl: siteConfig.location.googleMapsUrl || "https://maps.google.com/",
     latitude: null,
     longitude: null,

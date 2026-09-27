@@ -34,6 +34,7 @@ export const siteConfig = {
       postalCode: "425408",
       addressCountry: "IN",
     },
+    mapQuery: "Jahind Colony, Near Alpha Computer, Dondaicha, 425408",
     googleMapsUrl: process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL ?? "",
   },
 
