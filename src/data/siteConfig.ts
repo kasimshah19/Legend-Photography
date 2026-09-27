@@ -26,8 +26,8 @@ export const siteConfig = {
       "Jayhind Colony Road,",
       "Shree Mangal Harchand Nagar,",
       "Vikharan, Dondaicha,",
-      "Maharashtra 425408,",
-      "District Dhule, Maharashtra, India"
+      "District Dhule,",
+      "Maharashtra 425408, India"
     ],
     structured: {
       streetAddress: "Jayhind Colony Road, Shree Mangal Harchand Nagar, Vikharan",
@@ -36,7 +36,7 @@ export const siteConfig = {
       postalCode: "425408",
       addressCountry: "IN",
     },
-    mapQuery: "Jayhind Colony Road, Shree Mangal Harchand Nagar, Vikharan, Dondaicha, Maharashtra 425408, District Dhule, Maharashtra, India",
+    mapQuery: "Jayhind Colony Road, Shree Mangal Harchand Nagar, Vikharan, Dondaicha, District Dhule, Maharashtra 425408, India",
     googleMapsUrl: process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL ?? "",
   },
 
