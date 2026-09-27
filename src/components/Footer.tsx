@@ -11,7 +11,7 @@ export function Footer() {
         <div className="lg:col-span-2">
           <p className="font-serif text-xl tracking-wide">{siteConfig.name}</p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
-            Creative photography for weddings, pre-weddings, portraits and
+            Creative photography for weddings, pre-weddings, engagements, portraits and
             celebrations — crafted with an editorial eye and a candid heart.
           </p>
           {siteConfig.location.formattedAddress ? (

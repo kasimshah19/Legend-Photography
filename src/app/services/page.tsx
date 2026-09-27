@@ -16,11 +16,11 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "Photography Services & Packages | Legend Photography",
   description:
-    "Discover our premium photography services and packages for weddings, pre-weddings, maternity, fashion, and portraits.",
+    "Discover our premium photography services and packages for weddings, pre-weddings, engagements, maternity, fashion, and portraits.",
   alternates: { canonical: `${siteConfig.url}/services` },
   openGraph: {
     title: "Photography Services & Packages | Legend Photography",
-    description: "Discover our premium photography services and packages for weddings, pre-weddings, maternity, fashion, and portraits.",
+    description: "Discover our premium photography services and packages for weddings, pre-weddings, engagements, maternity, fashion, and portraits.",
     url: `${siteConfig.url}/services`,
   },
 };

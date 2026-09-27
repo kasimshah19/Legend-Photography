@@ -64,7 +64,7 @@ export default function TermsAndConditionsPage() {
       <section id="photography-services" className="scroll-mt-32">
         <h2>3. Photography Services</h2>
         <p>
-          We provide professional photography services, which may include wedding, pre-wedding, maternity, and portrait photography, where applicable and mutually agreed.
+          We provide professional photography services, which may include wedding, pre-wedding, engagement, maternity, and portrait photography, where applicable and mutually agreed.
         </p>
         <p>
           The scope of services depends on the selected package or booking agreement. Availability is subject to date and scheduling. Final deliverables depend on the agreed scope. Because photography is a creative service, creative output and style may naturally vary.

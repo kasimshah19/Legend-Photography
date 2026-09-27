@@ -28,7 +28,7 @@ export function IntroSection() {
           </h2>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-muted md:text-lg">
             Legend Photography is a creative photography studio specializing in
-            weddings, pre-weddings, portraits, maternity and special occasions.
+            weddings, pre-weddings, engagements, portraits, maternity and special occasions.
           </p>
           <Link
             href="/services"

@@ -12,12 +12,12 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "Photography Portfolio | Legend Photography",
   description:
-    "Explore our curated photography portfolio featuring authentic wedding, pre-wedding, candid, maternity, portrait and event stories.",
+    "Explore our curated photography portfolio featuring authentic wedding, pre-wedding, engagement, candid, maternity, portrait and event stories.",
   alternates: { canonical: `${siteConfig.url}/portfolio` },
   openGraph: {
     title: "Photography Portfolio | Legend Photography",
     description:
-      "Explore our curated photography portfolio featuring authentic wedding, pre-wedding, candid, maternity, portrait and event stories.",
+      "Explore our curated photography portfolio featuring authentic wedding, pre-wedding, engagement, candid, maternity, portrait and event stories.",
     url: `${siteConfig.url}/portfolio`,
   },
 };
