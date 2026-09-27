@@ -44,13 +44,8 @@ export function GiantTypography() {
 
       // Desktop premium cursor interaction (Art-Directed) & Mobile Tap
       
-      // Secondary trail (very subtle, slightly slower)
-      const secXTo = gsap.quickTo(secondary, "--x", { duration: 0.08, ease: "power2.out" });
-      const secYTo = gsap.quickTo(secondary, "--y", { duration: 0.08, ease: "power2.out" });
-      
-      // Primary trail (fast, responsive)
-      const primXTo = gsap.quickTo(primary, "--x", { duration: 0.04, ease: "power2.out" });
-      const primYTo = gsap.quickTo(primary, "--y", { duration: 0.04, ease: "power2.out" });
+      // Primary and Secondary are both updated DIRECTLY in pointer event handlers
+      // for 1:1 absolute minimal latency. NO GSAP interpolation for X/Y coordinates.
 
       let isActive = false;
       let fadeOutTimer: ReturnType<typeof setTimeout>;
@@ -88,10 +83,11 @@ export function GiantTypography() {
         const relX = e.pageX - docLeft;
         const relY = e.pageY - docTop;
         
-        secXTo(relX);
-        secYTo(relY);
-        primXTo(relX);
-        primYTo(relY);
+        // DIRECT update. No GSAP, no RAF, no lerp. 1:1 with pointer.
+        primary.style.setProperty("--x", relX.toString());
+        primary.style.setProperty("--y", relY.toString());
+        secondary.style.setProperty("--x", relX.toString());
+        secondary.style.setProperty("--y", relY.toString());
       };
 
       const handlePointerDown = (e: PointerEvent) => {
@@ -103,9 +99,11 @@ export function GiantTypography() {
         const relX = e.pageX - docLeft;
         const relY = e.pageY - docTop;
 
-        // Move immediately with almost no lag
-        gsap.to(primary, { "--x": relX, "--y": relY, duration: 0.1, ease: "power2.out" });
-        gsap.to(secondary, { "--x": relX, "--y": relY, duration: 0.15, ease: "power2.out" });
+        // Move immediately with zero lag
+        primary.style.setProperty("--x", relX.toString());
+        primary.style.setProperty("--y", relY.toString());
+        secondary.style.setProperty("--x", relX.toString());
+        secondary.style.setProperty("--y", relY.toString());
         
         // Fast activate
         gsap.to(secondary, { opacity: 0.5, duration: 0.15, ease: "power2.out" });
