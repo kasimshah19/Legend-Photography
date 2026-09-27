@@ -1,38 +1,30 @@
 # SEO Keyword Map & Strategy
 
 ## A. BRAND KEYWORDS
-| Keyword | Search Intent | Target Page | Priority | Current Status |
-|---|---|---|---|---|
-| Legend Photography | Navigational | `/` (Homepage) | High | Optimized |
-| Legend Photography portfolio | Navigational / Investigation | `/portfolio` | High | Optimized |
-| Legend Photography contact | Navigational / Transactional | `/contact` | High | Optimized |
-| Legend Photography wedding | Navigational / Investigation | `/portfolio` or `/services` | Medium | Optimized |
+| Keyword | Intent | Location | Business Relevance | Current Target Page | Recommended Page | Content Type | Priority | Competition Observation | SERP Observation | Status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Legend Photography | Navigational | National | Highest | `/` | `/` | Homepage | High | Low | Brand sitelinks present | Active |
 
-## B. CORE SERVICE KEYWORDS
-| Keyword | Search Intent | Target Page | Priority | Current Status |
-|---|---|---|---|---|
-| Wedding photographer | Commercial Investigation | `/services` | High | Optimized |
-| Wedding photography | Commercial Investigation | `/services` | High | Optimized |
-| Candid wedding photographer | Commercial Investigation | `/services` | High | Optimized |
-| Pre wedding photographer | Commercial Investigation | `/services` | High | Optimized |
-| Maternity photographer | Commercial Investigation | `/services` | Medium | Optimized |
+## B. COMMERCIAL CORE KEYWORDS
+| Keyword | Intent | Location | Business Relevance | Current Target Page | Recommended Page | Content Type | Priority | Competition Observation | SERP Observation | Status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Wedding Photographer | Commercial | India (Local) | High | `/services` | `/services` | Services | High | High | Portfolios & Local Packs | Active |
+| Wedding Photography | Commercial | India (Local) | High | `/services` | `/services` | Services | High | High | Inspiration & Vendors | Active |
+| Pre Wedding Photographer | Commercial | India (Local) | High | `/services` | `/services` | Services | High | Medium | Locations & Portfolios | Active |
+| Candid Wedding Photographer | Commercial | India (Local) | High | `/services` | `/services` | Services | High | Medium | Authentic Portfolios | Active |
+| Maternity Photographer | Commercial | India (Local) | Medium | `/services` | `/services` | Services | Medium | Medium | Studio Packages | Active |
+| Photography Studio | Commercial | India (Local) | Medium | `/contact` | `/contact` | Contact | Low | High | Maps & Directions | Active |
 
-## C. LOCAL SERVICE KEYWORDS
-*(Requires Client Input for `[CITY]`)*
-| Keyword | Search Intent | Target Page | Priority | Current Status |
-|---|---|---|---|---|
-| `[CITY]` wedding photographer | Local Commercial | `/services` & `/` | High | Pending Location |
-| `[CITY]` candid wedding photographer | Local Commercial | `/services` & `/` | High | Pending Location |
-| `[CITY]` photography studio | Local Navigational | `/contact` & `/` | Medium | Pending Location |
+## C. TRANSACTIONAL KEYWORDS
+| Keyword | Intent | Location | Business Relevance | Current Target Page | Recommended Page | Content Type | Priority | Competition Observation | SERP Observation | Status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Wedding photography packages | Transactional | India | High | `/services` | `/services` | Pricing | High | Medium | Pricing tables | Active |
+| Wedding photographer pricing | Transactional | India | High | `/services` | `/services` | Pricing | High | Medium | Budget guides | Active |
 
-## D. COMMERCIAL INTENT
-| Keyword | Search Intent | Target Page | Priority | Current Status |
-|---|---|---|---|---|
-| Wedding photography packages | Transactional | `/services` | High | Optimized |
-| Wedding photographer pricing | Transactional | `/services` | High | Optimized |
+## D. INFORMATIONAL KEYWORDS (FUTURE)
+| Keyword | Intent | Location | Business Relevance | Current Target Page | Recommended Page | Content Type | Priority | Competition Observation | SERP Observation | Status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| How to choose a wedding photographer | Informational | National | Medium | None | `/guides/[slug]` | Guide | Low | High | Blogs & Magazines | Pending Content |
+| Pre wedding shoot ideas | Informational | National | Medium | None | `/guides/[slug]` | Guide | Low | High | Pinterest & Blogs | Pending Content |
 
-## E. INFORMATIONAL INTENT
-| Keyword | Search Intent | Target Page | Priority | Current Status |
-|---|---|---|---|---|
-| How to choose a wedding photographer | Informational | Future Guide | Medium | Missing Content |
-| Pre wedding shoot ideas | Informational | Future Guide | Medium | Missing Content |
+*Search volume not verified. Exact targeting depends on final client location variables.*
