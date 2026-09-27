@@ -9,7 +9,7 @@ export const contactData = {
   },
   studio: {
     name: siteConfig.name,
-    address: siteConfig.location.address || "Jayhind Colony Rd, Shree Mangal Harchand Nagar, Vikharan, Dondaicha, Maharashtra 425408, District Dhule, Maharashtra, India",
+    address: siteConfig.location.address || "Jayhind Colony Road, Shree Mangal Harchand Nagar, Vikharan, Dondaicha, Maharashtra 425408, District Dhule, Maharashtra, India",
     formattedAddress: siteConfig.location.formattedAddress,
     mapQuery: siteConfig.location.mapQuery,
     googleMapsUrl: siteConfig.location.googleMapsUrl || "https://maps.google.com/",
