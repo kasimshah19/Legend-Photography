@@ -25,12 +25,13 @@ export const siteConfig = {
     formattedAddress: [
       "Jahind Colony, Near Alpha Computer",
       "Dondaicha, District Dhule",
-      "Maharashtra, India"
+      "Maharashtra - 425408, India"
     ],
     structured: {
       streetAddress: "Jahind Colony, Near Alpha Computer",
       addressLocality: "Dondaicha",
       addressRegion: "Maharashtra",
+      postalCode: "425408",
       addressCountry: "IN",
     },
     googleMapsUrl: process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL ?? "",

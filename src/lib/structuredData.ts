@@ -17,6 +17,7 @@ export function organizationJsonLd() {
             streetAddress: siteConfig.location.structured.streetAddress,
             addressLocality: siteConfig.location.structured.addressLocality,
             addressRegion: siteConfig.location.structured.addressRegion,
+            ...(siteConfig.location.structured.postalCode ? { postalCode: siteConfig.location.structured.postalCode } : {}),
             addressCountry: siteConfig.location.structured.addressCountry,
           },
         }
