@@ -203,7 +203,7 @@ This project is optimized for deployment on Vercel.
 **Sohel Shaikh**  
 *Co-Founder & Strategy at [VierLabs](https://vierlabs.com/)*
 
-> "Turns complex technical problems into simple, working solutions. Sohel leads product strategy and development at VIER LABS."
+> "Turning complex technical challenges into elegant, scalable solutions. Sohel leads product strategy and development at VierLabs, architecting robust digital platforms that merge cutting-edge technology with seamless user experiences. With a deep expertise in engineering and product vision, he ensures every solution is built for maximum performance, reliability, and long-term success."
 
 **Connect with Sohel:**
 - LinkedIn: [Sohel Shaikh](https://www.linkedin.com/in/sohel-shaikh-151034293/)
