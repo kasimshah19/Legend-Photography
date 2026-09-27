@@ -47,15 +47,18 @@ export const siteConfig = {
 } as const;
 
 export function whatsappUrl(message?: string): string | null {
-  const digits = siteConfig.whatsapp.replace(/\D/g, "");
+  let digits = siteConfig.whatsapp.replace(/\D/g, "");
   if (!digits) return null;
+  if (digits.startsWith("910") && digits.length > 11) digits = "91" + digits.slice(3);
+  digits = digits.startsWith("91") ? digits : `91${digits}`;
   const text = message ? `?text=${encodeURIComponent(message)}` : "";
   return `https://wa.me/${digits}${text}`;
 }
 
 export function telUrl(): string | null {
-  const digits = siteConfig.phone.replace(/\D/g, "");
+  let digits = siteConfig.phone.replace(/\D/g, "");
   if (!digits) return null;
+  if (digits.startsWith("910") && digits.length > 11) digits = "91" + digits.slice(3);
   return `tel:+${digits.startsWith("91") ? digits : `91${digits}`}`;
 }
 

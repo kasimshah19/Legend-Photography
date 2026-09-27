@@ -23,8 +23,14 @@ export function StudioLocation() {
             <h3 className="font-serif text-2xl mb-6">{studio.name}</h3>
             
             <address className="not-italic text-muted leading-loose mb-10 text-sm md:text-base">
-              {studio.address}<br />
-              {studio.city}, {studio.state}<br />
+              {studio.address}
+              {studio.city || studio.state ? (
+                <>
+                  <br />
+                  {[studio.city, studio.state].filter(Boolean).join(", ")}
+                </>
+              ) : null}
+              <br />
               {studio.country}
             </address>
 
@@ -43,7 +49,7 @@ export function StudioLocation() {
           <Reveal variant="right" className="lg:col-span-3 min-h-[400px] relative bg-neutral-100">
             {studio.googleMapsUrl ? (
               <iframe
-                src="https://maps.google.com/maps?q=Dondaicha,%20Maharashtra%20425408&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(`${studio.address}, ${studio.country}`)}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

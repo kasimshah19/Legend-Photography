@@ -14,6 +14,12 @@ export function Footer() {
             Creative photography for weddings, pre-weddings, portraits and
             celebrations — crafted with an editorial eye and a candid heart.
           </p>
+          {siteConfig.location.address ? (
+            <p className="mt-4 text-sm text-muted">
+              {siteConfig.location.address}
+              {siteConfig.location.country ? `, ${siteConfig.location.country}` : ""}
+            </p>
+          ) : null}
 
           <div className="mt-8 flex items-center gap-4">
             {wa && (
