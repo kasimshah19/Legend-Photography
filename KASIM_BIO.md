@@ -42,6 +42,18 @@ His ultimate goal is to empower businesses with digital solutions that are so fl
 
 ---
 
+## 🎓 Education & Technical Foundation
+
+Kasim's deep understanding of scalable systems and software architecture is backed by a robust technical education.
+
+**Ahinsa Institute of Technology** | *Dondaicha, Maharashtra*
+- **Bachelor of Technology (B.Tech) in Computer Technology** *(2023 – 2027)*
+- **Undergraduate Diploma in Computer Technology** *(2021 – 2023)*
+
+This comprehensive foundation enables him to not only speak the language of enterprise clients and high-level stakeholders but also to work seamlessly alongside elite engineering teams.
+
+---
+
 ## 💼 Connect & Engage
 
 Whether you're looking to start a new high-end web project, discuss technical strategies, or forge a long-term partnership, Kasim is always open to a conversation.
