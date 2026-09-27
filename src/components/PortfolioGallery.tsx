@@ -22,6 +22,7 @@ export function PortfolioGallery() {
     "all",
     "wedding",
     "pre-wedding",
+    "engagement",
     "candid",
     "maternity",
     "portrait",

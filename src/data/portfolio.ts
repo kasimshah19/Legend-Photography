@@ -1,6 +1,7 @@
 export type PortfolioCategory =
   | "wedding"
   | "pre-wedding"
+  | "engagement"
   | "candid"
   | "maternity"
   | "portrait"
@@ -22,6 +23,7 @@ export const portfolioCategories: { id: PortfolioCategory | "all"; label: string
   { id: "all", label: "All" },
   { id: "wedding", label: "Wedding" },
   { id: "pre-wedding", label: "Pre-Wedding" },
+  { id: "engagement", label: "Engagement" },
   { id: "candid", label: "Candid" },
   { id: "maternity", label: "Maternity" },
   { id: "portrait", label: "Portrait" },
