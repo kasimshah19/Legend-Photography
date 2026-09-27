@@ -8,6 +8,7 @@ import { cn } from "@/lib/cn";
 const serviceOptions = [
   "Wedding",
   "Pre-Wedding",
+  "Engagement",
   "Maternity",
   "Portrait",
   "Fashion",
