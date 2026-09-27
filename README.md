@@ -213,6 +213,10 @@ This project is optimized for deployment on Vercel.
 
 ---
 
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
 <div align="center">
   <em>© 2026 Legend Photography. All rights reserved.</em><br>
   <em>Designed & Built by <a href="https://vierlabs.com/">VierLabs</a></em>
