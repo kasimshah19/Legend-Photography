@@ -185,30 +185,14 @@ This project is optimized for deployment on Vercel.
 
 ---
 
-## The Team
+## 👥 The Founders at VierLabs
 
-**Kasim Shah**  
-*Co-Founder & Sales at [VierLabs](https://vierlabs.com/)*
+This platform was architected, designed, and developed by the founding team at **[VierLabs](https://vierlabs.com/)**.
 
-> "Turns conversations into partnerships. Kasim leads client relationships and makes sure every project starts with the right understanding."
-
-**Connect with Kasim:**
-- VierLabs: [vierlabs.com](https://vierlabs.com/)
-- Portfolio: [kasim-portfolio-umber.vercel.app](https://kasim-portfolio-umber.vercel.app/)
-- LinkedIn: [Kasim Shah](https://www.linkedin.com/in/kasim-shah-176175340/)
-- GitHub: [@kasimshah19](https://github.com/kasimshah19)
-
----
-
-**Sohel Shaikh**  
-*Co-Founder & Strategy at [VierLabs](https://vierlabs.com/)*
-
-> "Turns complex technical problems into simple, working solutions. Sohel leads product strategy and development at VIER LABS."
-
-**Connect with Sohel:**
-- LinkedIn: [Sohel Shaikh](https://www.linkedin.com/in/sohel-shaikh-151034293/)
-- GitHub: [@sohelshaikh14](https://github.com/sohelshaikh14)
-
+| Executive | Role | Philosophy | Connect |
+| :--- | :--- | :--- | :--- |
+| **Kasim Shah** | *Co-Founder & Sales* | *"Turns conversations into partnerships. Kasim leads client relationships and makes sure every project starts with the right understanding."* | 💼 [LinkedIn](https://www.linkedin.com/in/kasim-shah-176175340/)<br>🐙 [GitHub](https://github.com/kasimshah19)<br>🌐 [Portfolio](https://kasim-portfolio-umber.vercel.app/) |
+| **Sohel Shaikh** | *Co-Founder & Strategy* | *"Turns complex technical problems into simple, working solutions. Sohel leads product strategy and development at VIER LABS."* | 💼 [LinkedIn](https://www.linkedin.com/in/sohel-shaikh-151034293/)<br>🐙 [GitHub](https://github.com/sohelshaikh14)<br>🌐 [VierLabs](https://vierlabs.com/) |
 
 ---
 *© 2026 Legend Photography. All rights reserved.*  
