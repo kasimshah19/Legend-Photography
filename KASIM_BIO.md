@@ -46,9 +46,10 @@ His ultimate goal is to empower businesses with digital solutions that are so fl
 
 Kasim's deep understanding of scalable systems and software architecture is backed by a robust technical education.
 
-**Ahinsa Institute of Technology** | *Dondaicha, Maharashtra*
-- **Bachelor of Technology (B.Tech) in Computer Technology** *(2023 – 2027)*
-- **Undergraduate Diploma in Computer Technology** *(2021 – 2023)*
+| Degree / Program | Institution | Location | Duration |
+| :--- | :--- | :--- | :--- |
+| **B.Tech in Computer Technology** | Ahinsa Institute of Technology | Dondaicha, Maharashtra | 2023 – 2027 |
+| **Diploma in Computer Technology** | Ahinsa Institute of Technology | Dondaicha, Maharashtra | 2021 – 2023 |
 
 This comprehensive foundation enables him to not only speak the language of enterprise clients and high-level stakeholders but also to work seamlessly alongside elite engineering teams.
 
