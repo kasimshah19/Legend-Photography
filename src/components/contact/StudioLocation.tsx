@@ -49,7 +49,9 @@ export function StudioLocation() {
           <Reveal variant="right" className="lg:col-span-3 min-h-[400px] relative bg-neutral-100">
             {studio.googleMapsUrl ? (
               <iframe
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(`${studio.address}, ${studio.country}`)}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                  [studio.address, studio.city, studio.state, studio.country].filter(Boolean).join(", ")
+                )}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
