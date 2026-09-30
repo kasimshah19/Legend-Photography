@@ -56,8 +56,8 @@ export const siteConfig = {
   }
 } as const;
 
-export function whatsappUrl(message?: string): string | null {
-  let digits = siteConfig.whatsapp.replace(/\D/g, "");
+export function whatsappUrl(message?: string, overrideNumber?: string): string | null {
+  let digits = (overrideNumber || siteConfig.whatsapp).replace(/\D/g, "");
   if (!digits) return null;
   if (digits.startsWith("910") && digits.length > 11) digits = "91" + digits.slice(3);
   digits = digits.startsWith("91") ? digits : `91${digits}`;
@@ -65,8 +65,8 @@ export function whatsappUrl(message?: string): string | null {
   return `https://wa.me/${digits}${text}`;
 }
 
-export function telUrl(): string | null {
-  let digits = siteConfig.phone.replace(/\D/g, "");
+export function telUrl(overrideNumber?: string): string | null {
+  let digits = (overrideNumber || siteConfig.phone).replace(/\D/g, "");
   if (!digits) return null;
   if (digits.startsWith("910") && digits.length > 11) digits = "91" + digits.slice(3);
   return `tel:+${digits.startsWith("91") ? digits : `91${digits}`}`;

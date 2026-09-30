@@ -1,6 +1,6 @@
-import { packages } from "@/data/services";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
+
 const Check = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,9 @@ const Check = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export function PackageComparison() {
+export function PackageComparison({ packages }: { packages: any[] }) {
+  if (!packages || packages.length === 0) return null;
+
   return (
     <section className="bg-[#fcfbf9] py-24 md:py-32" id="packages">
       <div className="section-padding mx-auto max-w-[1400px]">
@@ -86,7 +88,7 @@ export function PackageComparison() {
                         <span className={isPopular ? 'text-white/90' : 'text-foreground/80'}>{pkg.video}</span>
                       </li>
                     )}
-                    {pkg.features.map((feature, i) => (
+                    {pkg.features.map((feature: string, i: number) => (
                       <li key={i} className="flex items-start gap-4">
                         <Check className={`w-4 h-4 shrink-0 mt-0.5 ${isPopular ? 'text-accent' : 'text-accent'}`} />
                         <span className={isPopular ? 'text-white/90' : 'text-foreground/80'}>{feature}</span>

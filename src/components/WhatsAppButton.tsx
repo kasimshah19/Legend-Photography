@@ -2,20 +2,24 @@
 
 import { whatsappUrl } from "@/data/siteConfig";
 import { cn } from "@/lib/cn";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 type WhatsAppButtonProps = {
   floating?: boolean;
   className?: string;
   label?: string;
+  whatsappNumber?: string;
 };
 
 export function WhatsAppButton({
   floating = false,
   className,
   label = "WhatsApp",
+  whatsappNumber,
 }: WhatsAppButtonProps) {
   const url = whatsappUrl(
     "Hi Legend Photography, I'd like to enquire about a photography session.",
+    whatsappNumber
   );
 
   if (!url) {
@@ -39,6 +43,7 @@ export function WhatsAppButton({
           className,
         )}
         aria-label="Chat on WhatsApp"
+        onClick={() => trackWhatsAppClick("floating")}
       >
         <WhatsAppIcon />
       </a>
@@ -51,6 +56,7 @@ export function WhatsAppButton({
       target="_blank"
       rel="noopener noreferrer"
       className={cn("btn-outline border-[#25D366]/40 text-foreground", className)}
+      onClick={() => trackWhatsAppClick("inline")}
     >
       {label}
     </a>

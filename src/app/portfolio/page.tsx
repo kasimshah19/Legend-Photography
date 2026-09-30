@@ -22,11 +22,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PortfolioPage() {
+import { getPublishedFilms } from "@/lib/filmData";
+import { getPublishedAlbums } from "@/lib/portfolioData";
+export default async function PortfolioPage() {
   const breadcrumb = breadcrumbJsonLd([
     { name: "Home", url: siteConfig.url },
     { name: "Portfolio", url: `${siteConfig.url}/portfolio` },
   ]);
+
+  const films = await getPublishedFilms();
+  const dbAlbums = await getPublishedAlbums();
 
   return (
     <>
@@ -44,9 +49,9 @@ export default function PortfolioPage() {
         imageAlt="Legend Photography portfolio — wedding photography"
       />
       <Suspense fallback={<div className="section-padding py-20 text-muted">Loading gallery...</div>}>
-        <PortfolioGallery />
+        <PortfolioGallery dbAlbums={dbAlbums} />
       </Suspense>
-      <FilmsSection />
+      <FilmsSection films={films} />
       <CTASection compact />
     </>
   );

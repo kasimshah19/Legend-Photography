@@ -1,13 +1,16 @@
 import { Schema, models, model } from "mongoose";
 
 export type InquiryStatus =
-  | "new"
-  | "contacted"
-  | "in-progress"
-  | "converted"
-  | "closed";
+  | "NEW"
+  | "CONTACTED"
+  | "FOLLOW-UP"
+  | "CONFIRMED"
+  | "COMPLETED"
+  | "CANCELLED"
+  | "CLOSED";
 
 export interface IInquiry {
+  _id?: string;
   name: string;
   phone: string;
   email?: string;
@@ -17,7 +20,10 @@ export interface IInquiry {
   numberOfEvents?: string;
   message?: string;
   status: InquiryStatus;
+  adminNotes?: string;
+  assignedTo?: string;
   createdAt: Date;
+  updatedAt: Date;
 }
 
 const InquirySchema = new Schema<IInquiry>(
@@ -32,9 +38,11 @@ const InquirySchema = new Schema<IInquiry>(
     message: { type: String },
     status: {
       type: String,
-      enum: ["new", "contacted", "in-progress", "converted", "closed"],
-      default: "new",
+      enum: ["NEW", "CONTACTED", "FOLLOW-UP", "CONFIRMED", "COMPLETED", "CANCELLED", "CLOSED"],
+      default: "NEW",
     },
+    adminNotes: { type: String },
+    assignedTo: { type: String },
   },
   { timestamps: { createdAt: true, updatedAt: true } },
 );

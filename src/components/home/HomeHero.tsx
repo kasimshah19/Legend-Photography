@@ -16,11 +16,13 @@ const VIDEOS = [
   "/videos/couple-7.mp4"
 ];
 
-export function HomeHero() {
+export function HomeHero({ data }: { data?: any }) {
   const [activePlayer, setActivePlayer] = useState<0 | 1>(0);
   const [indices, setIndices] = useState<[number, number]>([0, 1]);
   const [isMuted, setIsMuted] = useState(true);
   const [preloadNext, setPreloadNext] = useState(false);
+
+  const videos = data?.heroMedia?.length > 0 ? data.heroMedia : VIDEOS;
 
   const player0 = useRef<HTMLVideoElement>(null);
   const player1 = useRef<HTMLVideoElement>(null);
@@ -72,7 +74,7 @@ export function HomeHero() {
     setTimeout(() => {
       setIndices((prev) => {
         const newIndices = [...prev] as [number, number];
-        newIndices[player] = (prev[nextPlayer] + 1) % VIDEOS.length;
+        newIndices[player] = (prev[nextPlayer] + 1) % videos.length;
         return newIndices;
       });
     }, 1000);
@@ -94,7 +96,7 @@ export function HomeHero() {
         {/* Player 0 */}
         <video
           ref={player0}
-          src={VIDEOS[indices[0]]}
+          src={videos[indices[0]]}
           muted={isMuted}
           playsInline
           autoPlay={activePlayer === 0}
@@ -107,7 +109,7 @@ export function HomeHero() {
         {/* Player 1 */}
         <video
           ref={player1}
-          src={VIDEOS[indices[1]]}
+          src={videos[indices[1]]}
           muted={isMuted}
           playsInline
           autoPlay={activePlayer === 1}
@@ -153,13 +155,11 @@ export function HomeHero() {
         <p className="hero-elem text-[0.6875rem] font-medium uppercase tracking-[0.35em] text-white/80">
           LEGEND PHOTOGRAPHY
         </p>
-        <h1 className="hero-elem mt-4 max-w-4xl font-serif text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1.08] text-white">
-          Premium Wedding & 
-          <br />
-          Portrait Photography.
+        <h1 className="hero-elem mt-4 max-w-4xl font-serif text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1.08] text-white whitespace-pre-line">
+          {data?.heroTitle || "Premium Wedding &\nPortrait Photography."}
         </h1>
         <p className="hero-elem mt-6 max-w-xl text-base leading-relaxed text-white/80 md:text-lg whitespace-pre-line">
-          Stories that deserve to be remembered, captured with elegance and authenticity.
+          {data?.heroSubtitle || "Stories that deserve to be remembered, captured with elegance and authenticity."}
         </p>
         <div className="hero-elem mt-8 flex flex-wrap items-center gap-2 md:gap-3">
           {["Wedding", "Pre-Wedding", "Engagement", "Candid", "Maternity", "Fashion", "Events"].map((item) => (

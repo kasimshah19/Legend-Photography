@@ -19,10 +19,22 @@ const layoutClasses: Record<
   detail: "md:col-span-1",
 };
 
-export function FeaturedWorkSection() {
-  const items = featuredWorkIds
-    .map((id) => portfolioItems.find((p) => p.id === id))
-    .filter(Boolean) as PortfolioItem[];
+export function FeaturedWorkSection({ featuredAlbums }: { featuredAlbums?: any[] }) {
+  // If featuredAlbums is passed from DB and is not empty, map over them and extract fields that match PortfolioItem.
+  // We need to ensure we use Cloudinary IDs if available.
+  const items = featuredAlbums && featuredAlbums.length > 0
+    ? featuredAlbums.map((album: any) => ({
+        id: album.slug || album._id.toString(),
+        title: album.title,
+        src: album.coverImage || "/images/placeholder.jpg",
+        alt: album.title,
+        href: `/portfolio/${album.slug}`,
+        category: album.category,
+        layout: "standard" as PortfolioItem["layout"]
+      }))
+    : featuredWorkIds
+        .map((id) => portfolioItems.find((p) => p.id === id))
+        .filter(Boolean) as PortfolioItem[];
 
   return (
     <section className="section-padding mx-auto max-w-[1400px] py-20 md:py-28">

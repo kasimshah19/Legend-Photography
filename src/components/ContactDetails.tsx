@@ -1,24 +1,27 @@
-import { siteConfig, telUrl, whatsappUrl } from "@/data/siteConfig";
+import { telUrl, whatsappUrl } from "@/data/siteConfig";
+import { getSiteSettings } from "@/lib/getSiteSettings";
+import { TrackedLink } from "./TrackedLink";
 
-export function ContactDetails() {
-  const tel = telUrl();
-  const wa = whatsappUrl();
+export async function ContactDetails() {
+  const settings = await getSiteSettings();
+  const tel = telUrl(settings.phone);
+  const wa = whatsappUrl(undefined, settings.whatsapp);
 
   return (
     <div className="grid gap-10 border-t border-border pt-12 md:grid-cols-2">
       <div>
-        <h2 className="font-serif text-2xl">{siteConfig.name}</h2>
-        {siteConfig.location.formattedAddress ? (
+        <h2 className="font-serif text-2xl">{settings.name}</h2>
+        {settings.location.formattedAddress ? (
           <div className="mt-3 text-sm text-muted leading-relaxed">
-            {siteConfig.location.formattedAddress.map((line, index) => (
+            {settings.location.formattedAddress.map((line, index) => (
               <span key={index} className="block">
                 {line}
               </span>
             ))}
           </div>
-        ) : siteConfig.location.address ? (
+        ) : settings.location.address ? (
           <p className="mt-3 text-sm text-muted leading-relaxed">
-            {siteConfig.location.address}
+            {settings.location.address}
           </p>
         ) : null}
       </div>
@@ -27,19 +30,19 @@ export function ContactDetails() {
         {tel ? (
           <li>
             <span className="text-muted">Phone — </span>
-            <a href={tel} className="link-underline">
-              {siteConfig.phone}
-            </a>
+            <TrackedLink href={tel} event="phone_click" location="contact" className="link-underline">
+              {settings.phone}
+            </TrackedLink>
           </li>
         ) : (
           <li className="text-muted">Phone — set NEXT_PUBLIC_PHONE</li>
         )}
-        {siteConfig.email ? (
+        {settings.email ? (
           <li>
             <span className="text-muted">Email — </span>
-            <a href={`mailto:${siteConfig.email}`} className="link-underline">
-              {siteConfig.email}
-            </a>
+            <TrackedLink href={`mailto:${settings.email}`} event="email_click" location="contact" className="link-underline">
+              {settings.email}
+            </TrackedLink>
           </li>
         ) : (
           <li className="text-muted">Email — set NEXT_PUBLIC_EMAIL</li>
@@ -47,26 +50,26 @@ export function ContactDetails() {
         <li>
           <span className="text-muted">Instagram — </span>
           <a
-            href={siteConfig.instagram.url}
+            href={settings.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
             className="link-underline"
           >
-            @{siteConfig.instagram.handle}
+            @{settings.instagram.handle}
           </a>
         </li>
         {wa ? (
           <li>
             <span className="text-muted">WhatsApp — </span>
-            <a href={wa} target="_blank" rel="noopener noreferrer" className="link-underline">
+            <TrackedLink href={wa} event="whatsapp_click" location="contact" target="_blank" rel="noopener noreferrer" className="link-underline">
               Chat with us
-            </a>
+            </TrackedLink>
           </li>
         ) : null}
-        {siteConfig.location.googleMapsUrl ? (
+        {settings.location.googleMapsUrl ? (
           <li>
             <a
-              href={siteConfig.location.googleMapsUrl}
+              href={settings.location.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="link-underline text-[0.6875rem] uppercase tracking-[0.2em]"

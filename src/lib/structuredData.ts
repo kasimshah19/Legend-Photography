@@ -1,39 +1,39 @@
 import { siteConfig } from "@/data/siteConfig";
 
-export function organizationJsonLd() {
+export function organizationJsonLd(settings: typeof siteConfig = siteConfig) {
   return {
     "@context": "https://schema.org",
     "@type": "PhotographyStudio",
-    name: siteConfig.name,
-    description: siteConfig.seo.defaultDescription,
-    url: siteConfig.url,
-    sameAs: [siteConfig.instagram.url, ...(siteConfig.youtube.url ? [siteConfig.youtube.url] : [])],
-    ...(siteConfig.email ? { email: siteConfig.email } : {}),
-    ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
-    ...(siteConfig.location.address
+    name: settings.name,
+    description: settings.seo.defaultDescription,
+    url: settings.url,
+    sameAs: [settings.instagram.url, ...(settings.youtube.url ? [settings.youtube.url] : [])],
+    ...(settings.email ? { email: settings.email } : {}),
+    ...(settings.phone ? { telephone: settings.phone } : {}),
+    ...(settings.location.address
       ? {
           address: {
             "@type": "PostalAddress",
-            streetAddress: siteConfig.location.structured.streetAddress,
-            addressLocality: siteConfig.location.structured.addressLocality,
-            addressRegion: siteConfig.location.structured.addressRegion,
-            ...(siteConfig.location.structured.postalCode ? { postalCode: siteConfig.location.structured.postalCode } : {}),
-            addressCountry: siteConfig.location.structured.addressCountry,
+            streetAddress: settings.location.structured.streetAddress,
+            addressLocality: settings.location.structured.addressLocality,
+            addressRegion: settings.location.structured.addressRegion,
+            ...(settings.location.structured.postalCode ? { postalCode: settings.location.structured.postalCode } : {}),
+            addressCountry: settings.location.structured.addressCountry,
           },
         }
       : {}),
   };
 }
 
-export function webSiteJsonLd() {
+export function webSiteJsonLd(settings: typeof siteConfig = siteConfig) {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: siteConfig.name,
-    url: siteConfig.url,
+    name: settings.name,
+    url: settings.url,
     potentialAction: {
       "@type": "SearchAction",
-      target: `${siteConfig.url}/portfolio?q={search_term_string}`,
+      target: `${settings.url}/portfolio?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   };

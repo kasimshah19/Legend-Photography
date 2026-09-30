@@ -15,7 +15,13 @@ import { cn } from "@/lib/cn";
 
 
 
-export function PortfolioGallery() {
+import { IPortfolio } from "@/lib/models/Portfolio";
+
+type PortfolioGalleryProps = {
+  dbAlbums: any[]; // Using any to avoid complex Mongoose lean type issues, or defined IPortfolio
+};
+
+export function PortfolioGallery({ dbAlbums }: PortfolioGalleryProps) {
   const searchParams = useSearchParams();
   const initial = (searchParams.get("category") as PortfolioCategory | "all") ?? "all";
   const validCategories = [
@@ -36,12 +42,44 @@ export function PortfolioGallery() {
   const [filter, setFilter] = useState<PortfolioCategory | "all">(safeInitial);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
+  // Derive flat items from DB albums
+  const items = useMemo(() => {
+    const flatItems: PortfolioItem[] = [];
+    if (!dbAlbums || dbAlbums.length === 0) return portfolioItems; // fallback if empty
+
+    dbAlbums.forEach((album) => {
+      if (album.gallery && album.gallery.length > 0) {
+        album.gallery.forEach((img: any, idx: number) => {
+          flatItems.push({
+            id: `${album._id}-${idx}`,
+            title: album.title,
+            category: album.category,
+            src: img.url,
+            alt: img.alt || album.title,
+            // Simple heuristic for masonry layout
+            layout: idx % 3 === 0 ? "wide" : idx % 5 === 0 ? "tall" : "standard",
+          });
+        });
+      } else if (album.coverImage) {
+        flatItems.push({
+            id: `${album._id}-cover`,
+            title: album.title,
+            category: album.category,
+            src: album.coverImage,
+            alt: album.title,
+            layout: "wide",
+        });
+      }
+    });
+    return flatItems;
+  }, [dbAlbums]);
+
   const filtered = useMemo(
     () =>
       filter === "all"
-        ? portfolioItems
-        : portfolioItems.filter((p) => p.category === filter),
-    [filter],
+        ? items
+        : items.filter((p) => p.category === filter),
+    [filter, items],
   );
 
   const openLightbox = (id: string) => {

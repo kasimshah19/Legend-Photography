@@ -6,7 +6,7 @@ import { ServiceSection } from "@/components/ServiceSection";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { CTASection } from "@/components/CTASection";
 import { Reveal } from "@/components/Reveal";
-import { services } from "@/data/services";
+import { getPublishedServices, getPublishedPackages } from "@/lib/serviceData";
 import { siteConfig } from "@/data/siteConfig";
 import { breadcrumbJsonLd } from "@/lib/structuredData";
 import { PackageComparison } from "@/components/services/PackageComparison";
@@ -25,11 +25,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
   const breadcrumb = breadcrumbJsonLd([
     { name: "Home", url: siteConfig.url },
     { name: "Services", url: `${siteConfig.url}/services` },
   ]);
+
+  const services = await getPublishedServices();
+  const packages = await getPublishedPackages();
 
   return (
     <>
@@ -53,7 +56,7 @@ export default function ServicesPage() {
         ))}
       </div>
 
-      <PackageComparison />
+      <PackageComparison packages={packages} />
 
       <section className="relative overflow-hidden py-28 md:py-40">
         <div className="absolute inset-0 z-0">

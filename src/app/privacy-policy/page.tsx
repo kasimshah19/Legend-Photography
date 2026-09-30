@@ -127,7 +127,13 @@ export default function PrivacyPolicyPage() {
       <section id="analytics" className="scroll-mt-32">
         <h2>8. Analytics</h2>
         <p>
-          The website does not currently implement dedicated marketing analytics or tracking services (such as Google Analytics). Any analytics tools used by our hosting infrastructure process data in an anonymized manner to help us improve our website performance.
+          This website uses Google Analytics 4 (GA4) by Google LLC to understand aggregate website traffic and visitor behavior. GA4 collects anonymized, non-personal data including page views, session duration, device type, browser type, and approximate geographic region.
+        </p>
+        <p>
+          We do not send personally identifiable information (such as names, email addresses, phone numbers, or inquiry contents) to Google Analytics. Analytics data is used solely to improve the website experience and understand aggregate traffic patterns.
+        </p>
+        <p>
+          You may opt out of Google Analytics tracking by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>.
         </p>
       </section>
 

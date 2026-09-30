@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { cn } from "@/lib/cn";
+import { trackContactFormSubmit } from "@/lib/analytics";
 
 const serviceOptions = [
   "Wedding",
@@ -79,6 +80,7 @@ export function ContactForm() {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error ?? "Something went wrong.");
+      trackContactFormSubmit(form.service);
       setStatus("success");
       setForm(initial);
       router.push("/thank-you");

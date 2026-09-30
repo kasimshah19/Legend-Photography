@@ -1,57 +1,58 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { portfolioAlbums } from "@/data/albums";
 import { siteConfig } from "@/data/siteConfig";
 import { Navbar } from "@/components/Navbar";
 import { CTASection } from "@/components/CTASection";
 import { breadcrumbJsonLd } from "@/lib/structuredData";
 import { AlbumGallery } from "@/components/portfolio/AlbumGallery";
+import { getPublishedAlbumBySlug, getAllPublishedSlugs } from "@/lib/portfolioData";
 import Script from "next/script";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
-  return portfolioAlbums.map((album) => ({
-    slug: album.slug,
-  }));
+export async function generateStaticParams() {
+  const slugs = await getAllPublishedSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
-  const album = portfolioAlbums.find((a) => a.slug === resolvedParams.slug);
+  const album = await getPublishedAlbumBySlug(resolvedParams.slug);
 
   if (!album) {
     return { title: "Album Not Found" };
   }
 
   const title = `${album.title} | ${album.category.charAt(0).toUpperCase() + album.category.slice(1)} Photography | Legend Photography`;
+  const desc = album.seoDescription || album.description || '';
+  const pageTitle = album.seoTitle || title;
   
   return {
-    title,
-    description: album.description,
+    title: pageTitle,
+    description: desc,
     alternates: { canonical: `${siteConfig.url}/portfolio/${album.slug}` },
     openGraph: {
       type: "article",
-      title,
-      description: album.description,
+      title: pageTitle,
+      description: desc,
       url: `${siteConfig.url}/portfolio/${album.slug}`,
-      images: [{ url: album.coverImage, width: 1200, height: 630, alt: album.title }],
+      images: [{ url: album.ogImage || album.coverImage, width: 1200, height: 630, alt: album.title }],
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description: album.description,
-      images: [album.coverImage],
+      title: pageTitle,
+      description: desc,
+      images: [album.ogImage || album.coverImage],
     }
   };
 }
 
 export default async function AlbumPage({ params }: Props) {
   const resolvedParams = await params;
-  const album = portfolioAlbums.find((a) => a.slug === resolvedParams.slug);
+  const album = await getPublishedAlbumBySlug(resolvedParams.slug);
 
   if (!album) {
     notFound();
@@ -75,6 +76,15 @@ export default async function AlbumPage({ params }: Props) {
       name: siteConfig.name,
     },
   };
+
+  // Convert gallery to the format AlbumGallery expects
+  const galleryItems = album.gallery.map((img: any, i: number) => ({
+    id: `img-${i}`,
+    src: img.url,
+    alt: img.alt || album.title,
+    category: album.category,
+    title: img.alt || `Image ${i + 1}`,
+  }));
 
   return (
     <>
@@ -113,10 +123,10 @@ export default async function AlbumPage({ params }: Props) {
                   <span>{album.location}</span>
                 </>
               )}
-              {album.date && (
+              {album.eventDate && (
                 <>
                   <span className="hidden md:inline">•</span>
-                  <span>{album.date}</span>
+                  <span>{album.eventDate}</span>
                 </>
               )}
             </div>
@@ -130,7 +140,7 @@ export default async function AlbumPage({ params }: Props) {
       </section>
 
       {/* Album Gallery */}
-      <AlbumGallery items={album.images} />
+      <AlbumGallery items={galleryItems} />
 
       <CTASection compact />
     </>

@@ -10,6 +10,9 @@ import { Testimonials } from "@/components/Testimonials";
 import { InstagramSection } from "@/components/home/InstagramSection";
 import { CTASection } from "@/components/CTASection";
 import { siteConfig } from "@/data/siteConfig";
+import { connectMongo } from "@/lib/mongodb";
+import { Homepage } from "@/lib/models/Homepage";
+import { Portfolio } from "@/lib/models/Portfolio";
 
 export const metadata: Metadata = {
   title: siteConfig.seo.defaultTitle,
@@ -22,20 +25,31 @@ export const metadata: Metadata = {
   }
 };
 
-export default function HomePage() {
+async function getHomepageData() {
+  await connectMongo();
+  const settings = await Homepage.findOne().populate('featuredAlbums').lean();
+  return JSON.parse(JSON.stringify(settings || {}));
+}
+
+export default async function HomePage() {
+  const data = await getHomepageData();
+
+  const isEnabled = (section: string) => {
+    return data.sections?.[section]?.enabled ?? true;
+  };
 
   return (
     <>
       <Navbar variant="dark" />
-      <HomeHero />
-      <StatsSection />
-      <IntroSection />
-      <SpecialitiesSection />
-      <FeaturedWorkSection />
-      <WhySection />
-      <Testimonials />
-      <InstagramSection />
-      <CTASection />
+      <HomeHero data={data} />
+      {isEnabled('stats') && <StatsSection />}
+      {isEnabled('intro') && <IntroSection />}
+      {isEnabled('specialities') && <SpecialitiesSection />}
+      {isEnabled('featuredWork') && <FeaturedWorkSection featuredAlbums={data.featuredAlbums} />}
+      {isEnabled('why') && <WhySection />}
+      {isEnabled('testimonials') && <Testimonials />}
+      {isEnabled('instagram') && <InstagramSection />}
+      {isEnabled('cta') && <CTASection data={data} />}
     </>
   );
 }

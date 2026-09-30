@@ -21,7 +21,7 @@ export default function CookiePolicyPage() {
     >
       <div className="mb-8 rounded-xl border border-muted-foreground/20 bg-muted/10 p-4 text-sm text-muted-foreground">
         <p className="!m-0">
-          <strong>Current status:</strong> The website does not currently use non-essential cookies for advertising or behavioral tracking. The current website implementation does not use a dedicated analytics tracking service.
+          <strong>Current status:</strong> This website uses Google Analytics 4 for aggregate website traffic analysis. No cookies are used for advertising or behavioral tracking. No personally identifiable information is collected through analytics.
         </p>
       </div>
 
@@ -64,7 +64,10 @@ export default function CookiePolicyPage() {
       <section id="analytics-technologies" className="scroll-mt-32">
         <h2>4. Optional / Analytics Technologies</h2>
         <p>
-          The current website implementation does not use a dedicated analytics tracking service. We respect user privacy and currently rely strictly on direct communication (such as submitted inquiries) to understand client intent.
+          This website uses Google Analytics 4 (GA4) by Google LLC for aggregate website analytics. GA4 uses cookies to collect anonymized data such as page views, session duration, device type, and geographic region. No personally identifiable information (PII) — such as names, email addresses, phone numbers, or message contents — is sent to Google Analytics.
+        </p>
+        <p>
+          Google Analytics data is used solely by the website owner for understanding aggregate traffic patterns and improving the website experience. You may opt out of Google Analytics tracking by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>.
         </p>
       </section>
 

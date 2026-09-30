@@ -5,9 +5,10 @@ import { siteConfig } from "@/data/siteConfig";
 
 type CTASectionProps = {
   compact?: boolean;
+  data?: any;
 };
 
-export function CTASection({ compact }: CTASectionProps) {
+export function CTASection({ compact, data }: CTASectionProps) {
   return (
     <section
       className={
@@ -30,19 +31,19 @@ export function CTASection({ compact }: CTASectionProps) {
               Limited Slots Available
             </p>
           )}
-          <h2 className={`font-serif leading-tight ${compact ? "text-[clamp(1.75rem,4vw,3rem)]" : "text-[clamp(2.5rem,6vw,5rem)] font-light tracking-wide"}`}>
+          <h2 className={`font-serif leading-tight ${compact ? "text-[clamp(1.75rem,4vw,3rem)]" : "text-[clamp(2.5rem,6vw,5rem)] font-light tracking-wide whitespace-pre-line"}`}>
             {compact
               ? "Ready to begin?"
-              : "Book Your Date\nNow."}
+              : data?.ctaTitle || "Book Your Date\nNow."}
           </h2>
           <p
             className={`mx-auto mt-6 max-w-xl text-sm md:text-base leading-relaxed ${
-              compact ? "text-muted" : "text-white/60 font-light"
+              compact ? "text-muted" : "text-white/60 font-light whitespace-pre-line"
             }`}
           >
             {compact
               ? "Tell us about your celebration and we'll guide you through the next steps."
-              : "Your story deserves the perfect frames. Let's create something beautiful together before our calendar fills up."}
+              : data?.ctaSubtitle || "Your story deserves the perfect frames. Let's create something beautiful together before our calendar fills up."}
           </p>
           <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
             <ButtonLink

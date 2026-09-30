@@ -1,25 +1,22 @@
 <div align="center">
   <h1>Legend Photography</h1>
-  <p>A modern, cinematic photography portfolio and booking platform built with Next.js, Tailwind CSS, GSAP, and MongoDB.</p>
+  <p>A modern, cinematic photography portfolio and full-stack bespoke CMS built with Next.js, Tailwind CSS, GSAP, and MongoDB.</p>
 
   ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
   ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
   ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-  ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
   ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
   ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
   ![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white)
   <br>
   ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
   ![Mongoose](https://img.shields.io/badge/Mongoose-800?style=for-the-badge&logo=mongoose&logoColor=white)
+  ![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)
+  ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
   ![REST API](https://img.shields.io/badge/REST_API-005571?style=for-the-badge&logo=json&logoColor=white)
   ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
-  ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-  ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-  ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
   <br>
   ![Responsive Design](https://img.shields.io/badge/Responsive-Mobile_First-008080?style=for-the-badge&logo=css3&logoColor=white)
-  ![SEO](https://img.shields.io/badge/SEO-Optimized-FF9900?style=for-the-badge&logo=google&logoColor=white)
   ![Production](https://img.shields.io/badge/Production-Ready-brightgreen?style=for-the-badge)
   ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 </div>
@@ -30,90 +27,46 @@
 
 <div align="center">
   <h3><a href="https://github.com/kasimshah19/Legend-Photography/raw/master/src/screenshot/Legend%20Photography%20_%20Wedding%20%26%20Pre-Wedding%20Photography%20-%20Google%20Chrome%202026-09-25%2022-02-01.mp4">▶️ Watch / Download Cinematic Demo Video</a></h3>
-
   <p><i>A cinematic walkthrough of the Legend Photography portfolio.</i></p>
 </div>
 
 ---
 
-## Live Demo
-
-Experience the cinematic photography portfolio live:
-
-**Vercel Production Deployment**: [https://legend-photography.vercel.app](https://legend-photography.vercel.app)
-
-*(The application is deployed on Vercel's Edge Network as a full-stack Next.js application. You can explore the GSAP-powered animations, view the masonry portfolio grids, and test the MongoDB-connected inquiry forms on the live site.)*
-
----
-
 ## Overview
 
-**Legend Photography** is a premium digital portfolio and booking platform designed for a high-end photography studio specializing in weddings, pre-weddings, candid, maternity, portraits, and event photography. 
+**Legend Photography** is a premium digital portfolio, booking platform, and custom Content Management System (CMS) designed for a high-end photography studio. 
 
-The website aims to deliver an immersive, cinematic experience that mirrors the quality of the studio's photography. It allows potential clients to explore categorized portfolios, view video films/reels, compare service packages, and submit booking inquiries seamlessly.
+The website delivers an immersive, cinematic experience for potential clients (via GSAP animations and masonry layouts) while providing the studio owners with a powerful, secure, and bespoke **Admin Dashboard** to manage their entire business operations without touching code.
 
-## The Client's Challenge (Problem Statement)
+## 🚀 Key Features
 
-Legend Photography produces breathtaking, high-end visual content (weddings, editorial, pre-weddings), but their digital presence did not reflect the luxury and cinematic quality of their actual work. 
+### 1. Front-End: Cinematic Client Experience
+- **Cinematic Interactions**: Smooth scroll reveals, parallax media effects, and zero-latency cursor tracking powered by GSAP.
+- **Masonry Portfolio Grids**: Fully optimized, dynamic staggering image galleries using `next/image` and Cloudinary.
+- **Seamless Lead Generation**: Frictionless, database-backed inquiry forms with rate-limiting and anti-spam measures.
+- **Dynamic Content**: Every visible piece of content—from Hero texts to featured films and pricing packages—is dynamically injected from the database.
 
-**The specific problems they faced:**
-1. **Generic Brand Perception:** The previous digital footprint looked like a standard, templated photography website. It lacked the "wow factor" and failed to position them as a premium, high-ticket studio.
-2. **Poor Media Performance:** High-resolution photography and video reels caused severe lag, slow page loads, and layout shifts, leading to high bounce rates before clients even saw the best work.
-3. **Static User Experience:** The browsing experience was completely static and unengaging. There was no emotional connection or storytelling in how the portfolio was presented.
-4. **Friction in Lead Generation:** The booking and inquiry process was disconnected, making it tedious for high-intent clients to quickly get in touch or request quotes for specific packages.
-
-## Our Solution
-
-We completely re-architected and redesigned the Legend Photography platform from the ground up, moving away from a traditional "website" into a **high-fashion, cinematic digital atelier**.
-
-**How we solved it:**
-1. **Ultra-Premium Art Direction:** We implemented a luxury editorial aesthetic inspired by high-end fashion magazines (Vogue, Harper's Bazaar). This includes sophisticated fluid typography, a carefully curated warm-neutral color palette, and a breathtaking "Giant Typography" interactive footer.
-2. **Bespoke Cinematic Interactions:** Instead of static scrolling, we integrated **GSAP (GreenSock)** to build custom, hardware-accelerated animations. We implemented 1:1 zero-latency cursor tracking, smooth scroll reveals, and parallax media effects that make the website feel "alive" and highly interactive without dropping frames.
-3. **Blazing-Fast Modern Architecture:** Built on **Next.js 16 (App Router)**, the platform leverages aggressive server-side rendering (SSR), static site generation (SSG), and advanced edge caching. We utilized `next/image` to perfectly optimize heavy photography, guaranteeing instant load times and perfect Core Web Vitals despite the media-heavy nature of the site.
-4. **Frictionless Conversion Engine:** We built a seamless, database-backed inquiry flow using **MongoDB & Mongoose**. High-net-worth clients can now view transparent package comparisons and immediately send structured inquiries or initiate one-click WhatsApp conversations.
-
-## Features
-
-### User Experience
-- **Cinematic Interactions**: Premium scroll animations, parallax effects, and smooth reveals powered by GSAP.
-- **Responsive Navigation**: Adaptive mobile-first menu and structured routing.
-- **Dark/Light Theming Elements**: High-contrast, elegant UI suited for visual media.
-
-### Portfolio & Media
-- **Masonry Grid Gallery**: Optimized, staggered image grids for portfolio display.
-- **Integrated Lightbox**: Full-screen image viewing experience.
-- **Album Details**: Dedicated pages for specific shoots (e.g., weddings, maternity).
-- **Films / Reels Section**: Support for video embeds and highlight reels.
-
-### Services & Pricing
-- **Structured Service Categories**: Clear breakdowns of offerings.
-- **Package Comparisons**: Tiered pricing tables for different event types.
-- **Process Timeline**: Visual step-by-step guide of the client journey.
-- **FAQ Accordion**: Expandable questions and answers.
-
-### Contact & Lead Generation
-- **Inquiry Form**: Validated booking form that submits directly to the database.
-- **Direct Messaging**: One-click WhatsApp integration with pre-filled messages.
-- **Quick Call**: Integrated `tel:` links for immediate contact.
-
-### Performance & SEO
-- **Media Optimization**: Next.js automatic image optimization and lazy loading.
-- **Server-Side Rendering (SSR)**: Enhanced initial load and crawler indexing.
-- **Static Site Generation (SSG)**: Pre-rendered static pages for blazing fast delivery.
-- **Structured Metadata**: Dynamic SEO tags and Open Graph data for social sharing.
+### 2. Back-End: Bespoke Admin Dashboard & CMS
+We built a complete, secure backend infrastructure (Phases 57-70) that replaces the need for third-party tools like Sanity or WordPress:
+- **Authentication & RBAC**: Custom JWT-based session management with strict Role-Based Access Control (`SUPER_ADMIN`, `ADMIN`, `EDITOR`).
+- **Portfolio & Media Library CMS**: Direct integration with Cloudinary. Admins can upload, preview, reorder, draft, and publish albums and high-res media instantly.
+- **Inquiry Management**: A full CRM-like dashboard to track, filter, and update the status of client inquiries (New, Contacted, Booked, Archived).
+- **Films & Services CMS**: Full CRUD capabilities for video reels (YouTube/Vimeo extraction) and dynamic pricing packages.
+- **Site Settings & Homepage Controls**: Global control over business contact info, footer text, and homepage featured sections.
+- **Audit Logs & Notifications**: Automated tracking of all admin actions (who did what and when) and real-time polling for new inquiries.
+- **Production Security Hardening**: API rate-limiting, MongoDB IDOR checks, CSRF mitigation, and strict payload validation.
 
 ## Tech Stack
 
 | Layer | Technology | Purpose |
 |---|---|---|
-| **Frontend** | Next.js (App Router) | React framework for UI, routing, SSR, SSG, and SEO |
-| **UI Library** | React 19 | Component architecture and state management |
+| **Frontend** | Next.js (App Router), React 19 | UI, routing, SSR/SSG, and SEO |
 | **Styling** | Tailwind CSS v4 | Utility-first responsive styling |
 | **Animation** | GSAP & `@gsap/react` | High-performance, cinematic UI animations |
-| **Backend** | Next.js API Routes | Serverless functions for form handling |
-| **Database** | MongoDB | Persistent storage for booking inquiries |
-| **ODM** | Mongoose | Schema validation and database modeling |
-| **Deployment**| Vercel | Edge network delivery and CI/CD hosting |
+| **Backend** | Next.js Server Actions & API | Serverless functions, form handling, auth |
+| **Database** | MongoDB & Mongoose | Persistent storage, models, and relations |
+| **Media** | Cloudinary | High-performance CDN for image/video hosting |
+| **Security** | bcryptjs, jose | Password hashing and JWT session management |
 
 ## System Architecture
 
@@ -122,31 +75,27 @@ flowchart TD
     Client[Client / Browser]
     VercelEdge[Vercel Edge Network]
     NextApp[Next.js App Router]
-    NextAPI[Next.js API Routes]
+    NextAPI[Next.js Server Actions & API]
     MongoDB[(MongoDB Database)]
+    Cloudinary[(Cloudinary CDN)]
 
-    Client <-->|HTTPS / UI Interactions| VercelEdge
-    VercelEdge <-->|Serves Optimized Assets| Client
-    VercelEdge <-->|Routes Dynamic Req| NextApp
+    Client <-->|Interactions & UI| VercelEdge
+    VercelEdge <-->|Optimized Media| Cloudinary
+    VercelEdge <-->|Dynamic Routes| NextApp
     NextApp -->|Renders Pages & Hydrates| Client
-    Client -->|Submits Inquiry Form POST| NextAPI
+    Client -->|Submits Forms / Admin Uploads| NextAPI
+    NextAPI -->|Image Uploads| Cloudinary
     NextAPI -->|Validates via Mongoose| MongoDB
-    MongoDB -->|Returns Success/Fail| NextAPI
-    NextAPI -->|JSON Response| Client
+    MongoDB -->|Returns Data| NextAPI
+    NextAPI -->|JSON/Revalidation| Client
 ```
-
-## Security Considerations
-
-- **Database Credentials**: MongoDB URIs and secrets are stored strictly in environment variables (`.env.local`) and are never exposed to the client bundle.
-- **API Protection**: API routes utilize proper request parsing and Mongoose schema validation to prevent injection attacks and malformed data.
-- **CORS & Headers**: Managed natively by Next.js to ensure requests are securely processed on the same origin.
 
 ## Local Development
 
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/kasimshah19/Legend-Photography.git
-   cd legend-photography
+   cd Legend-Photography-master
    ```
 
 2. **Install dependencies**:
@@ -155,35 +104,23 @@ flowchart TD
    ```
 
 3. **Configure Environment Variables**:
-   Copy `.env.example` to `.env.local` and fill in your details:
+   Copy `.env.example` to `.env` (or `.env.local`) and configure your MongoDB URI, JWT Secret, and Cloudinary keys.
    ```bash
-   cp .env.example .env.local
+   cp .env.example .env
    ```
-   *(Note: The `MONGODB_URI` must be a valid MongoDB connection string to enable inquiry form saving. Do not commit `.env.local` to version control.)*
 
 4. **Run the development server**:
    ```bash
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. **Access the Application**:
+   - Public Site: [http://localhost:3000](http://localhost:3000)
+   - Admin Dashboard: [http://localhost:3000/admin](http://localhost:3000/admin)
 
-## Deployment
+## 🧪 Testing & QA
 
-This project is optimized for deployment on Vercel.
-
-1. Connect the GitHub repository to Vercel.
-2. Ensure the framework preset is set to **Next.js**.
-3. Add the environment variables from `.env.local` to the Vercel project settings.
-4. Deploy. Vercel will automatically build the project and deploy both the frontend pages and the serverless API routes.
-
-## Future Improvements
-
-- Add a headless CMS (like Sanity or Strapi) to allow the studio owner to upload new portfolio images without code changes.
-- Implement an authentication portal for clients to view private, password-protected galleries.
-- Integrate a real-time calendar availability API (like Calendly) for immediate booking.
-
----
+For detailed instructions on testing the Role-Based Access Control (RBAC) implementation and to get the default test credentials (SUPER_ADMIN, ADMIN, EDITOR), please refer to the [**TESTING.md**](TESTING.md) guide.
 
 ## The Team
 
@@ -211,13 +148,11 @@ This project is optimized for deployment on Vercel.
 
 ---
 
----
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
 
 <div align="center">
   <em>© 2026 Legend Photography. All rights reserved.</em><br>
-  <em>Designed & Built by <a href="https://vierlabs.com/">VierLabs</a></em>
+  <em>Designed & Built by Kasim Shah & Sohel Shaikh</em>
 </div>

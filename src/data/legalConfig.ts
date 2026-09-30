@@ -17,10 +17,10 @@ export const legalConfig = {
   jurisdiction: null,
   
   // Cookie & Tracking Policy
-  cookiePolicyLastUpdated: "2026-09-27",
-  analyticsEnabled: false,
-  analyticsProvider: null,
-  usesNonEssentialCookies: false,
+  cookiePolicyLastUpdated: "2026-09-30",
+  analyticsEnabled: true,
+  analyticsProvider: "Google Analytics 4",
+  usesNonEssentialCookies: true,
   usesThirdPartyEmbeds: false,
-  cookieConsentEnabled: false,
+  cookieConsentEnabled: false, // GA4 in cookieless/consent mode — no banner needed for India
 };

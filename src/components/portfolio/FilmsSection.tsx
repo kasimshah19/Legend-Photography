@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { films } from "@/data/films";
+import { PublicFilm } from "@/lib/filmData";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 
-export function FilmsSection() {
+export function FilmsSection({ films }: { films: PublicFilm[] }) {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   if (films.length === 0) return null;
