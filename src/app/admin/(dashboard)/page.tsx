@@ -5,27 +5,41 @@ import Link from 'next/link';
 import { ArrowRight, Image as ImageIcon, MessageSquare, Film, Plus } from 'lucide-react';
 
 async function getDashboardData() {
-  await connectMongo();
-  
-  const totalInquiries = await Inquiry.countDocuments();
-  const newInquiries = await Inquiry.countDocuments({ status: 'NEW' });
-  
-  const totalPortfolios = await Portfolio.countDocuments();
-  const publishedPortfolios = await Portfolio.countDocuments({ published: true });
+  try {
+    await connectMongo();
+    
+    const totalInquiries = await Inquiry.countDocuments();
+    const newInquiries = await Inquiry.countDocuments({ status: 'NEW' });
+    
+    const totalPortfolios = await Portfolio.countDocuments();
+    const publishedPortfolios = await Portfolio.countDocuments({ published: true });
 
-  const recentInquiries = await Inquiry.find().sort({ createdAt: -1 }).limit(5).lean();
-  const recentPortfolios = await Portfolio.find().sort({ createdAt: -1 }).limit(5).lean();
+    const recentInquiries = await Inquiry.find().sort({ createdAt: -1 }).limit(5).lean();
+    const recentPortfolios = await Portfolio.find().sort({ createdAt: -1 }).limit(5).lean();
 
-  return {
-    metrics: {
-      totalInquiries,
-      newInquiries,
-      totalPortfolios,
-      publishedPortfolios,
-    },
-    recentInquiries: JSON.parse(JSON.stringify(recentInquiries)),
-    recentPortfolios: JSON.parse(JSON.stringify(recentPortfolios)),
-  };
+    return {
+      metrics: {
+        totalInquiries,
+        newInquiries,
+        totalPortfolios,
+        publishedPortfolios,
+      },
+      recentInquiries: JSON.parse(JSON.stringify(recentInquiries)),
+      recentPortfolios: JSON.parse(JSON.stringify(recentPortfolios)),
+    };
+  } catch (error) {
+    console.error("Failed to fetch dashboard data from DB, falling back to empty:", error);
+    return {
+      metrics: {
+        totalInquiries: 0,
+        newInquiries: 0,
+        totalPortfolios: 0,
+        publishedPortfolios: 0,
+      },
+      recentInquiries: [],
+      recentPortfolios: [],
+    };
+  }
 }
 
 export default async function DashboardPage() {

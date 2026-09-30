@@ -26,9 +26,14 @@ export const metadata: Metadata = {
 };
 
 async function getHomepageData() {
-  await connectMongo();
-  const settings = await Homepage.findOne().populate('featuredAlbums').lean();
-  return JSON.parse(JSON.stringify(settings || {}));
+  try {
+    await connectMongo();
+    const settings = await Homepage.findOne().populate('featuredAlbums').lean();
+    return JSON.parse(JSON.stringify(settings || {}));
+  } catch (error) {
+    console.error("Failed to fetch homepage data from DB, falling back to defaults:", error);
+    return {};
+  }
 }
 
 export default async function HomePage() {
