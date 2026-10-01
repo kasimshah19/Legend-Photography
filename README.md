@@ -58,6 +58,15 @@ We built a complete, secure backend infrastructure (Phases 57-70) that replaces 
 - **Audit Logs & Notifications**: Automated tracking of all admin actions (who did what and when) and real-time polling for new inquiries.
 - **Production Security Hardening**: API rate-limiting, MongoDB IDOR checks, CSRF mitigation, and strict payload validation.
 
+## 🌍 Deployment & Infrastructure
+
+| Service | Role | Link / Status |
+|---|---|---|
+| **Render** | Primary Production Server (Node.js & Socket.IO) | [legend-photography.onrender.com](https://legend-photography.onrender.com) |
+| **Vercel** | Global Edge Network / Backup Preview | [legend-photography.vercel.app](https://legend-photography.vercel.app) |
+| **MongoDB Atlas** | Primary Database | 🔒 *[Secured for Privacy]* |
+| **Cloudinary** | Media Delivery Network (CDN) | ✅ Active |
+
 ## Tech Stack
 
 | Layer | Technology | Purpose |
