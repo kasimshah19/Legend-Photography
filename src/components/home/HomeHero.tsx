@@ -162,7 +162,7 @@ export function HomeHero({ data }: { data?: any }) {
           {data?.heroSubtitle || "Stories that deserve to be remembered, captured with elegance and authenticity."}
         </p>
         <div className="hero-elem mt-8 flex flex-wrap items-center gap-2 md:gap-3">
-          {["Wedding", "Pre-Wedding", "Engagement", "Candid", "Maternity", "Fashion", "Events"].map((item) => (
+          {["Wedding", "Pre-Wedding", "Engagement", "Portrait", "Maternity", "Fashion", "Event"].map((item) => (
             <span 
               key={item} 
               className="cursor-default rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[0.55rem] font-light uppercase tracking-[0.3em] text-white/90 shadow-xl backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white md:px-5 md:py-2 md:text-[0.65rem]"

@@ -1,14 +1,19 @@
 import { Reveal } from "@/components/Reveal";
 import { ButtonLink } from "@/components/ButtonLink";
+import { TrackedLink } from "@/components/TrackedLink";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { siteConfig } from "@/data/siteConfig";
 
 type CTASectionProps = {
   compact?: boolean;
   data?: any;
+  trackingContext?: {
+    event: "portfolio_cta_click" | "service_cta_click";
+    context: string;
+  };
 };
 
-export function CTASection({ compact, data }: CTASectionProps) {
+export function CTASection({ compact, data, trackingContext }: CTASectionProps) {
   return (
     <section
       className={
@@ -46,12 +51,24 @@ export function CTASection({ compact, data }: CTASectionProps) {
               : data?.ctaSubtitle || "Your story deserves the perfect frames. Let's create something beautiful together before our calendar fills up."}
           </p>
           <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
-            <ButtonLink
-              href={siteConfig.primaryCta.href}
-              variant={compact ? "primary" : "outline-light"}
-            >
-              Book a Shoot
-            </ButtonLink>
+            {trackingContext ? (
+              <TrackedLink
+                href={siteConfig.primaryCta.href}
+                event={trackingContext.event}
+                location="cta_section"
+                context={trackingContext.context}
+                className={compact ? "btn-primary" : "btn-outline btn-outline-light"}
+              >
+                Book a Shoot
+              </TrackedLink>
+            ) : (
+              <ButtonLink
+                href={siteConfig.primaryCta.href}
+                variant={compact ? "primary" : "outline-light"}
+              >
+                Book a Shoot
+              </ButtonLink>
+            )}
             <WhatsAppButton
               className={compact ? "" : "!border-white/20 !bg-white/5 !text-white hover:!bg-white hover:!text-black backdrop-blur-md"}
             />

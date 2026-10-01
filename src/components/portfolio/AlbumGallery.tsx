@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { PortfolioItem } from "@/data/portfolio";
 import { Lightbox } from "@/components/Lightbox";
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/cn";
+import { trackPortfolioAlbumView } from "@/lib/analytics";
 
 const spanClass = (item: PortfolioItem, i: number) => {
   if (item.layout === "wide") return "md:col-span-2";
@@ -14,8 +15,14 @@ const spanClass = (item: PortfolioItem, i: number) => {
   return "";
 };
 
-export function AlbumGallery({ items }: { items: PortfolioItem[] }) {
+export function AlbumGallery({ items, albumSlug }: { items: PortfolioItem[], albumSlug?: string }) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (items.length > 0 && albumSlug) {
+      trackPortfolioAlbumView(albumSlug, items[0].category || 'unknown');
+    }
+  }, [albumSlug, items]);
 
   if (items.length === 0) return null;
 

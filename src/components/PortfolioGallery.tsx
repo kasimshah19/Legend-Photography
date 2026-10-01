@@ -29,11 +29,12 @@ export function PortfolioGallery({ dbAlbums }: PortfolioGalleryProps) {
     "wedding",
     "pre-wedding",
     "engagement",
-    "candid",
     "maternity",
     "portrait",
     "fashion",
-    "events",
+    "event",
+    "kids",
+    "other",
   ] as const;
   const safeInitial = validCategories.includes(initial as (typeof validCategories)[number])
     ? (initial as PortfolioCategory | "all")

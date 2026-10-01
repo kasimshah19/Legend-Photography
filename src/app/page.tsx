@@ -12,7 +12,7 @@ import { CTASection } from "@/components/CTASection";
 import { siteConfig } from "@/data/siteConfig";
 import { connectMongo } from "@/lib/mongodb";
 import { Homepage } from "@/lib/models/Homepage";
-import { Portfolio } from "@/lib/models/Portfolio";
+import "@/lib/models/Portfolio";
 
 export const metadata: Metadata = {
   title: siteConfig.seo.defaultTitle,

@@ -88,7 +88,7 @@ export default function UsersClient({ users, currentUserRole }: { users: any[]; 
               <input
                 required
                 type="text"
-                className="w-full border-gray-300 rounded-none focus:ring-black focus:border-black"
+                className="w-full border border-gray-300 px-3 py-2 rounded-md focus:ring-black focus:border-black"
                 value={newUserData.name}
                 onChange={e => setNewUserData({...newUserData, name: e.target.value})}
               />
@@ -98,7 +98,7 @@ export default function UsersClient({ users, currentUserRole }: { users: any[]; 
               <input
                 required
                 type="email"
-                className="w-full border-gray-300 rounded-none focus:ring-black focus:border-black"
+                className="w-full border border-gray-300 px-3 py-2 rounded-md focus:ring-black focus:border-black"
                 value={newUserData.email}
                 onChange={e => setNewUserData({...newUserData, email: e.target.value})}
               />
@@ -109,7 +109,7 @@ export default function UsersClient({ users, currentUserRole }: { users: any[]; 
                 required
                 type="password"
                 minLength={6}
-                className="w-full border-gray-300 rounded-none focus:ring-black focus:border-black"
+                className="w-full border border-gray-300 px-3 py-2 rounded-md focus:ring-black focus:border-black"
                 value={newUserData.password}
                 onChange={e => setNewUserData({...newUserData, password: e.target.value})}
               />
@@ -117,7 +117,7 @@ export default function UsersClient({ users, currentUserRole }: { users: any[]; 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Role</label>
               <select
-                className="w-full border-gray-300 rounded-none focus:ring-black focus:border-black"
+                className="w-full border border-gray-300 px-3 py-2 rounded-md focus:ring-black focus:border-black"
                 value={newUserData.role}
                 onChange={e => setNewUserData({...newUserData, role: e.target.value})}
               >
@@ -147,7 +147,7 @@ export default function UsersClient({ users, currentUserRole }: { users: any[]; 
                 required
                 type="password"
                 minLength={6}
-                className="w-full border-gray-300 rounded-none focus:ring-black focus:border-black"
+                className="w-full border border-gray-300 px-3 py-2 rounded-md focus:ring-black focus:border-black"
                 value={newPassword}
                 onChange={e => setNewPassword(e.target.value)}
               />

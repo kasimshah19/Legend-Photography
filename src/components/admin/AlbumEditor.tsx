@@ -29,9 +29,12 @@ type AlbumData = {
 const CATEGORIES = [
   { id: 'wedding', label: 'Wedding' },
   { id: 'pre-wedding', label: 'Pre-Wedding' },
+  { id: 'engagement', label: 'Engagement' },
   { id: 'maternity', label: 'Maternity' },
+  { id: 'portrait', label: 'Portrait' },
   { id: 'fashion', label: 'Fashion' },
-  { id: 'kids', label: 'Kids' },
+  { id: 'event', label: 'Event' },
+  { id: 'other', label: 'Other' },
 ];
 
 function generateSlug(title: string): string {

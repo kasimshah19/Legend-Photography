@@ -77,11 +77,12 @@ export const services: ServiceItem[] = [
     imageAlt: "Portrait and fashion photography by Legend Photography",
   },
   {
-    id: "events",
+    id: "event",
     title: "Events & Celebrations",
     description: "Complete photography coverage for your special occasions.",
     image: "/images/portfolio/events-01.jpg",
     imageAlt: "Event photography by Legend Photography",
+    portfolioFilter: "event",
   },
 ];
 

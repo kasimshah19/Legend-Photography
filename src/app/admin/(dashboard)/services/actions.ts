@@ -4,6 +4,8 @@ import { connectMongo } from "@/lib/mongodb";
 import { Service, IService } from "@/lib/models/Service";
 import { requireAuth } from "@/lib/authorization";
 import { revalidatePath } from "next/cache";
+import { emitSocketEvent } from "@/lib/socketEmit";
+import { SOCKET_EVENTS } from "@/lib/socketEvents";
 
 export type SerializedService = {
   _id: string;
@@ -108,6 +110,15 @@ export async function updateService(id: string, data: Partial<IService>) {
       });
     });
     
+    // Emit realtime event AFTER successful DB write
+    emitSocketEvent(SOCKET_EVENTS.SERVICE_UPDATED, {
+      id,
+      type: 'service',
+      timestamp: new Date().toISOString(),
+      adminEmail: session.email,
+      metadata: { title: service.title },
+    });
+
     return { success: true, data: serializeService(service) };
   } catch (error: any) {
     return { success: false, error: error.message };

@@ -4,6 +4,8 @@ import { connectMongo } from "@/lib/mongodb";
 import { Inquiry, IInquiry, InquiryStatus } from "@/lib/models/Inquiry";
 import { requireAuth } from "@/lib/authorization";
 import { revalidatePath } from "next/cache";
+import { emitSocketEvent } from "@/lib/socketEmit";
+import { SOCKET_EVENTS } from "@/lib/socketEvents";
 
 export type SerializedInquiry = Omit<IInquiry, "_id" | "createdAt" | "updatedAt"> & {
   _id: string;
@@ -89,7 +91,20 @@ export async function updateInquiryStatus(id: string, status: InquiryStatus) {
     
     revalidatePath("/admin/inquiries");
     revalidatePath(`/admin/inquiries/${id}`);
-    
+
+    // Emit realtime event AFTER successful DB write
+    emitSocketEvent(
+      SOCKET_EVENTS.INQUIRY_STATUS_CHANGED,
+      {
+        id,
+        type: 'inquiry',
+        timestamp: new Date().toISOString(),
+        adminEmail: session.email,
+        metadata: { status },
+      },
+      'admin:inquiries'
+    );
+
     return { success: true, data: serializeInquiry(inquiry) };
   } catch (error: any) {
     return { success: false, error: error.message };

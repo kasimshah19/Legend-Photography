@@ -24,7 +24,7 @@ export default function AdminLoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background px-4">
       <div className="w-full max-w-md bg-card p-8 rounded-lg shadow-lg border border-border">
-        <h1 className="text-2xl font-serif text-foreground mb-6 text-center">Legend Admin</h1>
+        <h1 className="text-2xl font-serif text-foreground mb-6 text-center">Legend Photography Admin</h1>
         
         <form action={formAction} className="space-y-6">
           <div>

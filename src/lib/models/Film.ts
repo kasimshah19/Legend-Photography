@@ -25,7 +25,7 @@ const FilmSchema = new Schema<IFilm>(
     category: {
       type: String,
       required: true,
-      enum: ["wedding", "pre-wedding", "maternity", "fashion", "kids", "event", "other"],
+      enum: ["wedding", "pre-wedding", "engagement", "maternity", "portrait", "fashion", "kids", "event", "other"],
       default: "wedding",
     },
     featured: { type: Boolean, default: false },

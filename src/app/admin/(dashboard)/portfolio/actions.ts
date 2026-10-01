@@ -4,6 +4,8 @@ import { requireAuth } from '@/lib/authorization';
 import { connectMongo } from '@/lib/mongodb';
 import { Portfolio, type IPortfolio } from '@/lib/models/Portfolio';
 import { revalidatePath } from 'next/cache';
+import { emitAlbumEvent } from '@/lib/socketEmit';
+import { SOCKET_EVENTS } from '@/lib/socketEvents';
 
 // ─── Helpers ────────────────────────────────────────────────
 
@@ -107,7 +109,7 @@ export async function createAlbum(formData: FormData): Promise<ActionResult> {
     if (!category) return { success: false, error: 'Category is required' };
     if (!coverImage?.trim()) return { success: false, error: 'Cover image is required' };
 
-    const validCategories = ['wedding', 'pre-wedding', 'maternity', 'fashion', 'kids'];
+    const validCategories = ['wedding', 'pre-wedding', 'engagement', 'maternity', 'portrait', 'fashion', 'event', 'kids', 'other'];
     if (!validCategories.includes(category)) {
       return { success: false, error: 'Invalid category' };
     }
@@ -156,6 +158,9 @@ export async function createAlbum(formData: FormData): Promise<ActionResult> {
     revalidatePath('/admin/portfolio');
     revalidatePath('/');
 
+    // Emit realtime event AFTER successful DB write
+    emitAlbumEvent(SOCKET_EVENTS.ALBUM_CREATED, album._id.toString(), session.email, album.title);
+
     return { success: true, data: { id: album._id.toString(), slug: album.slug } };
   } catch (e: any) {
     return { success: false, error: e.message || 'Failed to create album' };
@@ -189,7 +194,7 @@ export async function updateAlbum(id: string, formData: FormData): Promise<Actio
     if (!category) return { success: false, error: 'Category is required' };
     if (!coverImage?.trim()) return { success: false, error: 'Cover image is required' };
 
-    const validCategories = ['wedding', 'pre-wedding', 'maternity', 'fashion', 'kids'];
+    const validCategories = ['wedding', 'pre-wedding', 'engagement', 'maternity', 'portrait', 'fashion', 'event', 'kids', 'other'];
     if (!validCategories.includes(category)) {
       return { success: false, error: 'Invalid category' };
     }
@@ -218,10 +223,24 @@ export async function updateAlbum(id: string, formData: FormData): Promise<Actio
 
     await existing.save();
 
+    const session = await requireAuth(['SUPER_ADMIN', 'ADMIN', 'EDITOR']);
+    import('@/lib/audit').then(({ createAuditLog }) => {
+      createAuditLog({
+        adminEmail: session.email,
+        action: 'UPDATE',
+        resource: 'Portfolio',
+        resourceId: existing._id.toString(),
+        metadata: { title: existing.title }
+      });
+    });
+
     revalidatePath('/portfolio');
     revalidatePath(`/portfolio/${slug}`);
     revalidatePath('/admin/portfolio');
     revalidatePath('/');
+
+    // Emit realtime event AFTER successful DB write
+    emitAlbumEvent(SOCKET_EVENTS.ALBUM_UPDATED, existing._id.toString(), session.email, existing.title);
 
     return { success: true, data: { id: existing._id.toString(), slug } };
   } catch (e: any) {
@@ -239,9 +258,23 @@ export async function deleteAlbum(id: string): Promise<ActionResult> {
     const album = await Portfolio.findByIdAndDelete(id);
     if (!album) return { success: false, error: 'Album not found' };
 
+    const session = await requireAuth(['SUPER_ADMIN', 'ADMIN']);
+    import('@/lib/audit').then(({ createAuditLog }) => {
+      createAuditLog({
+        adminEmail: session.email,
+        action: 'DELETE',
+        resource: 'Portfolio',
+        resourceId: id,
+        metadata: { title: album.title }
+      });
+    });
+
     revalidatePath('/portfolio');
     revalidatePath('/admin/portfolio');
     revalidatePath('/');
+
+    // Emit realtime event AFTER successful DB write
+    emitAlbumEvent(SOCKET_EVENTS.ALBUM_DELETED, id, session.email, album.title);
 
     return { success: true };
   } catch (e: any) {
@@ -277,6 +310,10 @@ export async function togglePublish(id: string): Promise<ActionResult> {
     revalidatePath(`/portfolio/${album.slug}`);
     revalidatePath('/admin/portfolio');
     revalidatePath('/');
+
+    // Emit realtime event AFTER successful DB write
+    const eventType = album.published ? SOCKET_EVENTS.ALBUM_PUBLISHED : SOCKET_EVENTS.ALBUM_UNPUBLISHED;
+    emitAlbumEvent(eventType, album._id.toString(), session.email, album.title);
 
     return { success: true, data: { published: album.published } };
   } catch (e: any) {

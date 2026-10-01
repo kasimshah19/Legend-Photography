@@ -76,6 +76,28 @@ export async function POST(request: Request) {
       uploadedBy: session.userId, 
     });
 
+    // Non-blocking: audit log + realtime event AFTER successful DB write
+    import('@/lib/audit').then(({ createAuditLog }) => {
+      createAuditLog({
+        adminEmail: session.email,
+        action: 'UPLOAD',
+        resource: 'Media',
+        resourceId: mediaDoc._id.toString(),
+        metadata: { fileName: file.name }
+      });
+    });
+    import('@/lib/socketEmit').then(({ emitSocketEvent }) => {
+      import('@/lib/socketEvents').then(({ SOCKET_EVENTS }) => {
+        emitSocketEvent(SOCKET_EVENTS.MEDIA_UPLOADED, {
+          id: mediaDoc._id.toString(),
+          type: 'media',
+          timestamp: new Date().toISOString(),
+          adminEmail: session.email,
+          metadata: { fileName: file.name },
+        });
+      });
+    });
+
     return NextResponse.json({ success: true, data: mediaDoc });
   } catch (error: any) {
     console.error("Upload error:", error);

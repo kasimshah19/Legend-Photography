@@ -25,9 +25,12 @@ const CATEGORIES = [
   { id: 'all', label: 'All' },
   { id: 'wedding', label: 'Wedding' },
   { id: 'pre-wedding', label: 'Pre-Wedding' },
+  { id: 'engagement', label: 'Engagement' },
   { id: 'maternity', label: 'Maternity' },
+  { id: 'portrait', label: 'Portrait' },
   { id: 'fashion', label: 'Fashion' },
-  { id: 'kids', label: 'Kids' },
+  { id: 'event', label: 'Event' },
+  { id: 'other', label: 'Other' },
 ];
 
 export function PortfolioAdminClient({ initialAlbums }: { initialAlbums: Album[] }) {

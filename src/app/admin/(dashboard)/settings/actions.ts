@@ -11,6 +11,12 @@ export type SerializedSettings = {
   email: string;
   whatsapp: string;
   youtubeUrl: string;
+  instagramUrl: string;
+  facebookUrl: string;
+  twitterUrl: string;
+  pinterestUrl: string;
+  linkedinUrl: string;
+  otherSocialLinks: { platform: string; url: string }[];
   googleMapsUrl: string;
 };
 
@@ -31,6 +37,12 @@ export async function getSettings(): Promise<{ success: boolean; data?: Serializ
           email: "",
           whatsapp: "",
           youtubeUrl: "",
+          instagramUrl: "",
+          facebookUrl: "",
+          twitterUrl: "",
+          pinterestUrl: "",
+          linkedinUrl: "",
+          otherSocialLinks: [],
           googleMapsUrl: "",
         } 
       };
@@ -44,6 +56,12 @@ export async function getSettings(): Promise<{ success: boolean; data?: Serializ
         email: settings.email || "",
         whatsapp: settings.whatsapp || "",
         youtubeUrl: settings.youtubeUrl || "",
+        instagramUrl: settings.instagramUrl || "",
+        facebookUrl: settings.facebookUrl || "",
+        twitterUrl: settings.twitterUrl || "",
+        pinterestUrl: settings.pinterestUrl || "",
+        linkedinUrl: settings.linkedinUrl || "",
+        otherSocialLinks: settings.otherSocialLinks || [],
         googleMapsUrl: settings.googleMapsUrl || "",
       } 
     };
@@ -77,6 +95,11 @@ export async function updateSettings(data: SerializedSettings) {
         resourceId: existing ? existing._id.toString() : 'global',
         metadata: { updated: true }
       });
+    });
+
+    // Emit realtime event AFTER successful DB write
+    import('@/lib/socketEmit').then(({ emitSettingsUpdated }) => {
+      emitSettingsUpdated(session.email);
     });
 
     return { success: true };

@@ -21,7 +21,7 @@ export const portfolioAlbums: Album[] = [
     description: "A collection of candid moments, emotional portraits and intimate details from their beautiful wedding celebration.",
     location: "Udaipur, Rajasthan",
     date: "October 2025",
-    images: portfolioItems.filter((i) => i.category === "wedding" || i.category === "candid"),
+    images: portfolioItems.filter((i) => i.category === "wedding" || i.category === "other"),
   },
   {
     slug: "amit-neha-pre-wedding",

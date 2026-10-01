@@ -313,6 +313,7 @@ export async function getConversionEvents(dateRange: GA4DateRange) {
             "email_click",
             "portfolio_cta_click",
             "service_cta_click",
+            "film_click",
           ],
         },
       },

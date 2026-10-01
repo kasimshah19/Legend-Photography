@@ -62,8 +62,11 @@ export async function POST(request: Request) {
           message: `${name} is interested in ${service}.`,
           resourceId: inquiry._id.toString(),
         }).then(() => {
-          // Optional: Email notification logic can be triggered here
-          // e.g. await sendAdminEmail({ subject: 'New Inquiry', ... })
+          // Emit realtime event AFTER DB success
+          import('@/lib/socketEmit').then(({ emitInquiryCreated, emitNotificationCreated }) => {
+            emitInquiryCreated(inquiry._id.toString(), service);
+            emitNotificationCreated(inquiry._id.toString(), 'NEW_INQUIRY', 'New Inquiry Received');
+          }).catch(err => console.error('Socket emit error:', err));
         }).catch(err => console.error('Notification error:', err));
       }).catch(err => console.error('Notification import error:', err));
     } else {

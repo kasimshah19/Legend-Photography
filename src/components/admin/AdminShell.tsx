@@ -20,6 +20,7 @@ import {
   BarChart3
 } from 'lucide-react';
 import { NotificationsMenu } from './NotificationsMenu';
+import { RealtimeStatus } from './RealtimeStatus';
 
 type AdminShellProps = {
   children: React.ReactNode;
@@ -74,7 +75,7 @@ export function AdminShell({ children, user, logoutAction }: AdminShellProps) {
       >
         <div className="h-16 flex items-center justify-between px-4 border-b border-gray-200">
           <h1 className={`font-serif font-semibold text-lg text-gray-900 ${isCollapsed ? 'md:hidden' : ''}`}>
-            Legend Admin
+            Legend Photography Admin
           </h1>
           {isCollapsed && <span className="hidden md:block font-serif font-semibold text-xl mx-auto">L</span>}
           <button 
@@ -150,7 +151,8 @@ export function AdminShell({ children, user, logoutAction }: AdminShellProps) {
               {navItems.find(item => pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href)))?.name || 'Dashboard'}
             </h2>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
+            <RealtimeStatus />
             <NotificationsMenu />
           </div>
         </header>

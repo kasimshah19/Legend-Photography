@@ -2,11 +2,12 @@ export type PortfolioCategory =
   | "wedding"
   | "pre-wedding"
   | "engagement"
-  | "candid"
   | "maternity"
   | "portrait"
   | "fashion"
-  | "events";
+  | "event"
+  | "kids"
+  | "other";
 
 export type PortfolioItem = {
   id: string;
@@ -24,11 +25,12 @@ export const portfolioCategories: { id: PortfolioCategory | "all"; label: string
   { id: "wedding", label: "Wedding" },
   { id: "pre-wedding", label: "Pre-Wedding" },
   { id: "engagement", label: "Engagement" },
-  { id: "candid", label: "Candid" },
   { id: "maternity", label: "Maternity" },
   { id: "portrait", label: "Portrait" },
   { id: "fashion", label: "Fashion" },
-  { id: "events", label: "Events" },
+  { id: "event", label: "Event" },
+  { id: "kids", label: "Kids" },
+  { id: "other", label: "Other" },
 ];
 
 export const portfolioItems: PortfolioItem[] = [
@@ -54,7 +56,7 @@ export const portfolioItems: PortfolioItem[] = [
     id: "c1",
     src: "/images/portfolio/candid-01.jpg",
     alt: "Candid wedding celebration photography",
-    category: "candid",
+    category: "other",
     title: "Candid celebration",
     layout: "standard",
   },
@@ -88,7 +90,7 @@ export const portfolioItems: PortfolioItem[] = [
     id: "e1",
     src: "/images/portfolio/events-01.jpg",
     alt: "Event celebration photography coverage",
-    category: "events",
+    category: "event",
     title: "Special event",
     layout: "standard",
   },
@@ -113,7 +115,7 @@ export const portfolioItems: PortfolioItem[] = [
     id: "c2",
     src: "/images/portfolio/candid-02.jpg",
     alt: "Candid emotional moment at wedding",
-    category: "candid",
+    category: "other",
     title: "Emotional candid",
     layout: "wide",
   },

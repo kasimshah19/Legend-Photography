@@ -7,7 +7,7 @@ import { ArrowLeft, Save, Video, ImageIcon } from "lucide-react";
 import Link from "next/link";
 import { createFilm, updateFilm, SerializedFilm } from "@/app/admin/(dashboard)/films/actions";
 
-const CATEGORIES = ["wedding", "pre-wedding", "maternity", "fashion", "kids", "event", "other"];
+const CATEGORIES = ["wedding", "pre-wedding", "engagement", "maternity", "portrait", "fashion", "event", "other"];
 
 export function FilmEditor({ initialData }: { initialData?: SerializedFilm }) {
   const router = useRouter();

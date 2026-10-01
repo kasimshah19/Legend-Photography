@@ -1,11 +1,12 @@
 "use client";
 
-import { trackPhoneClick, trackEmailClick, trackWhatsAppClick } from "@/lib/analytics";
+import { trackPhoneClick, trackEmailClick, trackWhatsAppClick, trackPortfolioCTAClick, trackFilmClick, trackServiceCTAClick } from "@/lib/analytics";
 
 type TrackedLinkProps = {
   href: string;
-  event: "phone_click" | "email_click" | "whatsapp_click";
+  event: "phone_click" | "email_click" | "whatsapp_click" | "portfolio_cta_click" | "film_click" | "service_cta_click";
   location: string;
+  context?: string;
   children: React.ReactNode;
   className?: string;
   target?: string;
@@ -19,7 +20,7 @@ type TrackedLinkProps = {
  * NO PII is sent — only the interaction type and location.
  */
 export function TrackedLink({
-  href, event, location, children, className, target, rel, ariaLabel,
+  href, event, location, context, children, className, target, rel, ariaLabel,
 }: TrackedLinkProps) {
   const handleClick = () => {
     switch (event) {
@@ -31,6 +32,15 @@ export function TrackedLink({
         break;
       case "whatsapp_click":
         trackWhatsAppClick(location);
+        break;
+      case "portfolio_cta_click":
+        if (context) trackPortfolioCTAClick(context);
+        break;
+      case "film_click":
+        if (context) trackFilmClick(context);
+        break;
+      case "service_cta_click":
+        if (context) trackServiceCTAClick(context);
         break;
     }
   };

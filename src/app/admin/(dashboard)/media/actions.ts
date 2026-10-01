@@ -5,6 +5,8 @@ import { Media, IMedia } from "@/lib/models/Media";
 import { requireAuth } from "@/lib/authorization";
 import cloudinary from "@/lib/cloudinary";
 import { revalidatePath } from "next/cache";
+import { emitSocketEvent } from "@/lib/socketEmit";
+import { SOCKET_EVENTS } from "@/lib/socketEvents";
 
 export type SerializedMedia = Omit<IMedia, "_id" | "createdAt" | "uploadedBy"> & {
   _id: string;
@@ -66,6 +68,16 @@ export async function deleteMedia(id: string) {
     });
     
     revalidatePath("/admin/media");
+
+    // Emit realtime event AFTER successful DB write
+    emitSocketEvent(SOCKET_EVENTS.MEDIA_DELETED, {
+      id,
+      type: 'media',
+      timestamp: new Date().toISOString(),
+      adminEmail: session.email,
+      metadata: { fileName: mediaDoc.fileName },
+    });
+
     return { success: true };
   } catch (error: any) {
     console.error("Error deleting media:", error);

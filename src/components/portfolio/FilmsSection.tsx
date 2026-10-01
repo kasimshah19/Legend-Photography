@@ -5,6 +5,7 @@ import { useState } from "react";
 import { PublicFilm } from "@/lib/filmData";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
+import { trackFilmClick } from "@/lib/analytics";
 
 export function FilmsSection({ films }: { films: PublicFilm[] }) {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
@@ -36,7 +37,10 @@ export function FilmsSection({ films }: { films: PublicFilm[] }) {
                   ) : (
                     <button
                       type="button"
-                      onClick={() => setActiveVideo(film.id)}
+                      onClick={() => {
+                        setActiveVideo(film.id);
+                        trackFilmClick(film.title);
+                      }}
                       className="absolute inset-0 flex h-full w-full flex-col items-center justify-center focus-visible:outline-accent"
                       aria-label={`Play ${film.title}`}
                     >

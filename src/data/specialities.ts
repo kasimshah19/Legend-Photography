@@ -25,7 +25,7 @@ export const specialities = [
     title: "Candid Photography",
     description: "Unposed moments that feel alive and honest.",
     image: "/images/portfolio/candid-02.jpg",
-    href: "/portfolio?category=candid",
+    href: "/portfolio?category=other",
   },
   {
     number: "05",
@@ -46,7 +46,7 @@ export const specialities = [
     title: "Events & Lifestyle",
     description: "Coverage that honours every detail of your occasion.",
     image: "/images/portfolio/events-01.jpg",
-    href: "/portfolio?category=events",
+    href: "/portfolio?category=event",
   },
 ] as const;
 

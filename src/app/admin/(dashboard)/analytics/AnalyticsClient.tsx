@@ -417,6 +417,9 @@ export function AnalyticsClient() {
                   <ConversionCard event="whatsapp_click" count={null} label="WhatsApp Clicks" disabled={!ga4Connected} />
                   <ConversionCard event="phone_click" count={null} label="Phone Clicks" disabled={!ga4Connected} />
                   <ConversionCard event="email_click" count={null} label="Email Clicks" disabled={!ga4Connected} />
+                  <ConversionCard event="portfolio_cta_click" count={null} label="Portfolio CTA" disabled={!ga4Connected} />
+                  <ConversionCard event="service_cta_click" count={null} label="Service CTA" disabled={!ga4Connected} />
+                  <ConversionCard event="film_click" count={null} label="Film Plays" disabled={!ga4Connected} />
                 </>
               )}
             </div>
@@ -620,6 +623,7 @@ function ConversionCard({ event, count, label, disabled }: { event: string; coun
     email_click: "Email Clicks",
     portfolio_cta_click: "Portfolio CTA",
     service_cta_click: "Service CTA",
+    film_click: "Film Plays",
   };
   const icons: Record<string, React.ReactNode> = {
     contact_form_submit: <MessageCircle size={16} />,
@@ -628,6 +632,7 @@ function ConversionCard({ event, count, label, disabled }: { event: string; coun
     email_click: <Mail size={16} />,
     portfolio_cta_click: <FolderHeart size={16} />,
     service_cta_click: <Briefcase size={16} />,
+    film_click: <Film size={16} />,
   };
 
   return (

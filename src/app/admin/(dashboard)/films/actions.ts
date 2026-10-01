@@ -4,6 +4,8 @@ import { connectMongo } from "@/lib/mongodb";
 import { Film, IFilm } from "@/lib/models/Film";
 import { requireAuth } from "@/lib/authorization";
 import { revalidatePath } from "next/cache";
+import { emitSocketEvent } from "@/lib/socketEmit";
+import { SOCKET_EVENTS } from "@/lib/socketEvents";
 
 export type SerializedFilm = Omit<IFilm, "_id" | "createdAt" | "updatedAt"> & {
   _id: string;
@@ -87,6 +89,15 @@ export async function createFilm(data: Omit<IFilm, "_id" | "createdAt" | "update
       });
     });
     
+    // Emit realtime event AFTER successful DB write
+    emitSocketEvent(SOCKET_EVENTS.FILM_CREATED, {
+      id: film._id.toString(),
+      type: 'film',
+      timestamp: new Date().toISOString(),
+      adminEmail: session.email,
+      metadata: { title: film.title },
+    });
+
     return { success: true, data: serializeFilm(film.toObject()) };
   } catch (error: any) {
     return { success: false, error: error.message };
@@ -124,6 +135,15 @@ export async function updateFilm(id: string, data: Omit<IFilm, "_id" | "createdA
       });
     });
     
+    // Emit realtime event AFTER successful DB write
+    emitSocketEvent(SOCKET_EVENTS.FILM_UPDATED, {
+      id,
+      type: 'film',
+      timestamp: new Date().toISOString(),
+      adminEmail: session.email,
+      metadata: { title: film.title },
+    });
+
     return { success: true, data: serializeFilm(film) };
   } catch (error: any) {
     return { success: false, error: error.message };
@@ -151,8 +171,16 @@ export async function deleteFilm(id: string) {
           metadata: { title: film.title }
         });
       });
+      // Emit realtime event AFTER successful DB write
+      emitSocketEvent(SOCKET_EVENTS.FILM_DELETED, {
+        id,
+        type: 'film',
+        timestamp: new Date().toISOString(),
+        adminEmail: session.email,
+        metadata: { title: film.title },
+      });
     }
-    
+
     return { success: true };
   } catch (error: any) {
     return { success: false, error: error.message };
@@ -180,8 +208,17 @@ export async function toggleFilmPublish(id: string, published: boolean) {
           metadata: { title: film.title }
         });
       });
+      // Emit realtime event AFTER successful DB write
+      const eventType = published ? SOCKET_EVENTS.FILM_PUBLISHED : SOCKET_EVENTS.FILM_DELETED;
+      emitSocketEvent(eventType, {
+        id,
+        type: 'film',
+        timestamp: new Date().toISOString(),
+        adminEmail: session.email,
+        metadata: { title: film.title, published },
+      });
     }
-    
+
     return { success: true };
   } catch (error: any) {
     return { success: false, error: error.message };

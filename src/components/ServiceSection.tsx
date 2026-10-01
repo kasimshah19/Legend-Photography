@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
+import { TrackedLink } from "@/components/TrackedLink";
 import { Reveal } from "@/components/Reveal";
 import type { ServiceItem } from "@/data/services";
 
@@ -55,9 +56,15 @@ export function ServiceSection({ service, index }: ServiceSectionProps) {
 
           {service.cta ? (
             <div className="mt-10">
-              <ButtonLink href={service.cta.href} variant="outline">
+              <TrackedLink 
+                href={service.cta.href} 
+                className="btn-outline text-foreground border-foreground/30 inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-medium uppercase tracking-[0.2em] transition-all hover:bg-black hover:text-white"
+                event="service_cta_click"
+                location="services_page"
+                context={service.title}
+              >
                 {service.cta.label}
-              </ButtonLink>
+              </TrackedLink>
             </div>
           ) : null}
         </div>

@@ -3,9 +3,13 @@ import { Schema, models, model } from "mongoose";
 export type PortfolioCategoryType =
   | "wedding"
   | "pre-wedding"
+  | "engagement"
   | "maternity"
+  | "portrait"
   | "fashion"
-  | "kids";
+  | "event"
+  | "kids"
+  | "other";
 
 export interface IGalleryImage {
   url: string;
@@ -48,7 +52,7 @@ const PortfolioSchema = new Schema<IPortfolio>(
     category: {
       type: String,
       required: true,
-      enum: ["wedding", "pre-wedding", "maternity", "fashion", "kids"],
+      enum: ["wedding", "pre-wedding", "engagement", "maternity", "portrait", "fashion", "event", "kids", "other"],
     },
     coverImage: { type: String, required: true },
     gallery: { type: [GalleryImageSchema], default: [] },

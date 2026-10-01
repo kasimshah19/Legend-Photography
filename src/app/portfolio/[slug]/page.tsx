@@ -140,9 +140,9 @@ export default async function AlbumPage({ params }: Props) {
       </section>
 
       {/* Album Gallery */}
-      <AlbumGallery items={galleryItems} />
+      <AlbumGallery items={galleryItems} albumSlug={album.slug} />
 
-      <CTASection compact />
+      <CTASection compact trackingContext={{ event: 'portfolio_cta_click', context: album.slug }} />
     </>
   );
 }
