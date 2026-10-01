@@ -12,6 +12,12 @@ export default async function SettingsPage() {
     email: "",
     whatsapp: "",
     youtubeUrl: "",
+    instagramUrl: "",
+    facebookUrl: "",
+    twitterUrl: "",
+    pinterestUrl: "",
+    linkedinUrl: "",
+    otherSocialLinks: [],
     googleMapsUrl: "",
   };
 
