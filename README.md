@@ -1,7 +1,9 @@
 <div align="center">
   <h1>Legend Photography</h1>
   <p>A modern, cinematic photography portfolio and full-stack bespoke CMS built with Next.js, Tailwind CSS, GSAP, and MongoDB.</p>
+
   <p><strong>🌐 Live Website: <a href="https://legend-photography.onrender.com">https://legend-photography.onrender.com</a></strong></p>
+
   ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
   ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
   ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
