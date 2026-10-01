@@ -67,6 +67,9 @@ We built a complete, secure backend infrastructure (Phases 57-70) that replaces 
 | **MongoDB Atlas** | Primary Database | 🔒 *[Secured for Privacy]* |
 | **Cloudinary** | Media Delivery Network (CDN) | ✅ Active |
 
+> **Why Render instead of Vercel?**  
+> While Vercel is excellent for static Next.js sites, its Serverless Architecture does not support long-lived WebSocket connections (connections are killed instantly). To power the **Real-Time Admin Notifications** and instantaneous database sync using `Socket.IO`, we engineered a custom `server.js` architecture. This required migrating our primary deployment to **Render**, which natively supports 24/7 persistent Node.js processes and WebSockets.
+
 ## Tech Stack
 
 | Layer | Technology | Purpose |
