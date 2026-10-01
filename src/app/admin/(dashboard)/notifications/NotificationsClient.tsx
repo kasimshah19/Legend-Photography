@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { Bell, Check, ExternalLink, Trash2 } from "lucide-react";
 import Link from "next/link";
@@ -25,6 +25,10 @@ export function NotificationsClient({ initialNotifications, userRole }: Notifica
   const [notifications, setNotifications] = useState<Notification[]>(initialNotifications);
   const [isMarkingAll, setIsMarkingAll] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
+
+  useEffect(() => {
+    setNotifications(initialNotifications);
+  }, [initialNotifications]);
 
   const handleMarkAsRead = async (id: string, e?: React.MouseEvent) => {
     if (e) {

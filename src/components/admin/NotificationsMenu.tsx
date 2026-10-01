@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { Bell, Check, ExternalLink } from 'lucide-react';
 import { getUnreadNotifications, markAsRead, markAllAsRead } from '@/app/admin/actions/notifications';
 import Link from 'next/link';
+import { useSocketEvent } from './SocketProvider';
+import { SOCKET_EVENTS } from '@/lib/socketEvents';
 
 type Notification = {
   _id: string;
@@ -29,7 +31,6 @@ export function NotificationsMenu() {
   };
 
   useEffect(() => {
-    // Only call inside interval or inside a defined inner function to avoid direct render trigger warnings.
     let isMounted = true;
     
     const initFetch = async () => {
@@ -38,16 +39,15 @@ export function NotificationsMenu() {
     
     initFetch();
 
-    // Poll every 1 minute
-    const interval = setInterval(() => {
-      if (isMounted) fetchNotifications();
-    }, 60000);
-    
     return () => {
       isMounted = false;
-      clearInterval(interval);
     };
   }, []);
+
+  useSocketEvent(SOCKET_EVENTS.NOTIFICATION_CREATED, (data) => {
+    // When a new notification is emitted, simply refetch or prepend
+    fetchNotifications();
+  });
 
   const handleMarkAsRead = async (id: string, e: React.MouseEvent) => {
     e.preventDefault();
